@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "797657391118",
+    "project_id": "hovedopgave-85800",
+    "storage_bucket": "hovedopgave-85800.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797657391118:android:e1cbb4ca75709461231c5f",
+        "android_client_info": {
+          "package_name": "com.homies.hovedopgave"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "797657391118-kmegng58hn6fq1o65qn7jvgiu6ev6cbu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV8FdJXa2Yq-2ny_Cr45nttoRTqot39w4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "797657391118-kmegng58hn6fq1o65qn7jvgiu6ev6cbu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

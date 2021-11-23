@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hovedopgave</string>
+    <string name="username">Brugernavn</string>
+    <string name="language">Sprog</string>
+    <string name="settings">Indstillinger</string>
+    <string name="danish">Dansk</string>
+    <string name="english">Engelsk</string>
+</resources>
