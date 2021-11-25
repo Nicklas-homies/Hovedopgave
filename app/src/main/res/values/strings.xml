@@ -5,4 +5,15 @@
     <string name="settings">Settings</string>
     <string name="danish">Danish</string>
     <string name="english">English</string>
+    <string name="description">Description</string>
+
+    <string name="new_exercise">New exercise</string>
+    <string name="exercise_name">Exercise name</string>
+    <string name="exercise_muscle_group">Muscle groups</string>
+    <string name="exercise_tools">Tools</string>
+    <string name="exercise_description">Description</string>
+    <string name="exercise_time">Time</string>
+    <string name="add_exercise">Add Exercise</string>
+    <string name="name">Name</string>
+    <string name="search">Search</string>
 </resources>
