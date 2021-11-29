@@ -33,9 +33,9 @@ public class ExerciseRepo {
                     Map<String, Object> mapExercise = snap.getData();
                     if (mapExercise.size() != 0) {
                         ArrayList<String> muscleGroup = new ArrayList<>();
-                        muscleGroup.add((String) mapExercise.get("muscleGroup"));
+                        muscleGroup.addAll((ArrayList<String>) mapExercise.get("muscleGroup"));
                         ArrayList<String> tools = new ArrayList<>();
-                        tools.add((String) mapExercise.get("tools"));
+                        tools.addAll((ArrayList<String>) mapExercise.get("tools"));
                         exercises.add(new Exercise(snap.getId(), muscleGroup, tools,
                                 (String) mapExercise.get("description"),Integer.valueOf((String) mapExercise.get("time")) ));
                     } else {
@@ -49,10 +49,10 @@ public class ExerciseRepo {
 
     public void addExercise(Exercise exercise){
         DocumentReference reference = db.collection(COLLECTION).document(exercise.getExerciseName());
-        Map<String, String> map = new HashMap();
+        Map<String, Object> map = new HashMap();
         map.put("exercise", exercise.getExerciseName());
-        map.put("muscleGroup", exercise.getMuscleGroup().toString());
-        map.put("tools", exercise.getTools().toString());
+        map.put("muscleGroup", exercise.getMuscleGroup());
+        map.put("tools", exercise.getTools());
         map.put("description", exercise.getDescription());
         map.put("time", String.valueOf(exercise.getTime()));
         reference.set(map); // replaces previous values

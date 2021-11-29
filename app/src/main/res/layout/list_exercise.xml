@@ -17,11 +17,12 @@
 
     <TextView
         android:id="@+id/list_exercise_muscle_group"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Muscle groups"
         android:textSize="@dimen/normalText"
         app:layout_constraintBottom_toBottomOf="@+id/list_exercise_btn_details"
+        app:layout_constraintEnd_toStartOf="@+id/list_exercise_btn_details"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/list_exercise_name" />
 

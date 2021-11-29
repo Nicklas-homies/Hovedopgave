@@ -20,6 +20,8 @@ public class NewExerciseActivity extends AppCompatActivity {
     EditText exerciseDescription;
     EditText exerciseTime;
 
+    ArrayList<String> muscleGroupList = new ArrayList<>();
+    ArrayList<String> toolList = new ArrayList<>();
 
 
     @Override
@@ -34,15 +36,7 @@ public class NewExerciseActivity extends AppCompatActivity {
     }
 
     public void addExerciseClick(View view) {
-        String muscleGroup = exerciseMuscleGroup.getText().toString();
-        ArrayList<String> muscleGroups = new ArrayList<String>();
-        muscleGroups.add(muscleGroup);
-
-        String tool = exerciseTools.getText().toString();
-        ArrayList tools = new ArrayList<String>();
-        tools.add(tool);
-
-        Exercise exercise = new Exercise(exerciseName.getText().toString(), muscleGroups, tools,
+        Exercise exercise = new Exercise(exerciseName.getText().toString(), muscleGroupList, toolList,
                 exerciseDescription.getText().toString(), Integer.valueOf(exerciseTime.getText().toString()));
         ExerciseRepo.r().addExercise(exercise);
         System.out.println("added: " + exercise.toString());
@@ -56,14 +50,15 @@ public class NewExerciseActivity extends AppCompatActivity {
         whereToGet.getText().clear();
         TextView placeToAddMuscle = findViewById(R.id.added_muscle_group);
         placeToAddMuscle.append(" " + muscleToAdd);
+        this.muscleGroupList.add(muscleToAdd);
     }
 
     public void addToolsClick(View view) {
         EditText whereToGet = findViewById(R.id.new_exercise_tools);
         String toolToAdd = whereToGet.getText().toString();
-
         whereToGet.getText().clear();
         TextView placeToAddMuscle = findViewById(R.id.added_tools);
         placeToAddMuscle.append(" " + toolToAdd);
+        this.toolList.add(toolToAdd);
     }
 }
