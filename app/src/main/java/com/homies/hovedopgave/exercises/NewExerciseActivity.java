@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.homies.hovedopgave.ExerciseRepo;
 import com.homies.hovedopgave.R;
@@ -14,8 +15,8 @@ import java.util.ArrayList;
 
 public class NewExerciseActivity extends AppCompatActivity {
     EditText exerciseName;
-    EditText exerciseMuscleGroup;
-    EditText exerciseTools;
+    TextView exerciseMuscleGroup;
+    TextView exerciseTools;
     EditText exerciseDescription;
     EditText exerciseTime;
 
@@ -26,8 +27,8 @@ public class NewExerciseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_exercise);
         exerciseName = findViewById(R.id.new_exercise_name);
-        exerciseMuscleGroup = findViewById(R.id.new_exercise_muscle_group);
-        exerciseTools = findViewById(R.id.new_exercise_tools);
+        exerciseMuscleGroup = findViewById(R.id.added_muscle_group);
+        exerciseTools = findViewById(R.id.added_tools);
         exerciseDescription = findViewById(R.id.new_exercise_description);
         exerciseTime = findViewById(R.id.new_exercise_time);
     }
@@ -47,5 +48,22 @@ public class NewExerciseActivity extends AppCompatActivity {
         System.out.println("added: " + exercise.toString());
         System.out.println("I think");
         finish();
+    }
+
+    public void addMuscleGroupClick(View view) {
+        EditText whereToGet = findViewById(R.id.new_exercise_muscle_group);
+        String muscleToAdd = whereToGet.getText().toString();
+        whereToGet.getText().clear();
+        TextView placeToAddMuscle = findViewById(R.id.added_muscle_group);
+        placeToAddMuscle.append(" " + muscleToAdd);
+    }
+
+    public void addToolsClick(View view) {
+        EditText whereToGet = findViewById(R.id.new_exercise_tools);
+        String toolToAdd = whereToGet.getText().toString();
+
+        whereToGet.getText().clear();
+        TextView placeToAddMuscle = findViewById(R.id.added_tools);
+        placeToAddMuscle.append(" " + toolToAdd);
     }
 }

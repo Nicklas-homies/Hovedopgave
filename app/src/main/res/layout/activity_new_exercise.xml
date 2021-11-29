@@ -20,23 +20,21 @@
 
     <EditText
         android:id="@+id/new_exercise_muscle_group"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/exercise_muscle_group"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toStartOf="@+id/btn_add_muscle_group"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_exercise_name" />
+        app:layout_constraintTop_toBottomOf="@+id/added_muscle_group" />
 
     <EditText
         android:id="@+id/new_exercise_tools"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/exercise_tools"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toStartOf="@+id/btn_add_tools"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_exercise_muscle_group" />
+        app:layout_constraintTop_toBottomOf="@+id/added_tools" />
 
     <EditText
         android:id="@+id/new_exercise_description"
@@ -67,6 +65,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/new_exercise_time" />
+
+    <TextView
+        android:id="@+id/added_muscle_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_exercise_name" />
+
+    <TextView
+        android:id="@+id/added_tools"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_exercise_muscle_group" />
+
+    <Button
+        android:id="@+id/btn_add_muscle_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        android:onClick="addMuscleGroupClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/new_exercise_muscle_group" />
+
+    <Button
+        android:id="@+id/btn_add_tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        android:onClick="addToolsClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/new_exercise_tools" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
