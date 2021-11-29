@@ -7,6 +7,7 @@
     <string name="english">English</string>
     <string name="description">Description</string>
 
+    <!-- Written by **Jacob Ravn** jaco8748 -->
     <string name="new_exercise">New exercise</string>
     <string name="exercise_name">Exercise name</string>
     <string name="exercise_muscle_group">Muscle groups</string>

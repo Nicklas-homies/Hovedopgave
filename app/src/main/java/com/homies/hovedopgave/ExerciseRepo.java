@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/* Written by **Jacob Ravn** jaco8748 */
 public class ExerciseRepo {
     private static ExerciseRepo repo = new ExerciseRepo();
     FirebaseFirestore db = FirebaseFirestore.getInstance();

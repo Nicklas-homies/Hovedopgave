@@ -16,6 +16,7 @@ import androidx.fragment.app.DialogFragment;
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.models.Exercise;
 
+/* Written by **Jacob Ravn** jaco8748 */
 public class ExerciseDialogDetails extends DialogFragment {
     private TextView nameTxt;
     private TextView muscle;

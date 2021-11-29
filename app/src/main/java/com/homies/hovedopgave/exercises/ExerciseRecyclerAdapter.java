@@ -17,6 +17,7 @@ import com.homies.hovedopgave.models.Exercise;
 
 import java.util.ArrayList;
 
+/* Written by **Jacob Ravn** jaco8748 */
 public class ExerciseRecyclerAdapter extends RecyclerView.Adapter<ExerciseRecyclerAdapter.ViewHolder> {
     ArrayList<Exercise> exercises;
     FragmentManager context;

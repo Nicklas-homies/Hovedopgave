@@ -17,7 +17,7 @@ import com.homies.hovedopgave.models.Exercise;
 import com.homies.hovedopgave.utils.LanguageHelper;
 
 import java.util.ArrayList;
-
+/* Written by **Jacob Ravn** jaco8748 */
 public class ExerciseActivity extends AppCompatActivity implements Updatable {
     ArrayList<Exercise> exercises = new ArrayList<>();
     ArrayList<Exercise> data = new ArrayList<>();
