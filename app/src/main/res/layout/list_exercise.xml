@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Written by **Jacob Ravn** jaco8748 -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding">
+
+    <TextView
+        android:id="@+id/list_exercise_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="@dimen/mediumText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/list_exercise_muscle_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Muscle groups"
+        android:textSize="@dimen/normalText"
+        app:layout_constraintBottom_toBottomOf="@+id/list_exercise_btn_details"
+        app:layout_constraintEnd_toStartOf="@+id/list_exercise_btn_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_exercise_name" />
+
+    <Button
+        android:id="@+id/list_exercise_btn_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_exercise_name" />
+</androidx.constraintlayout.widget.ConstraintLayout>

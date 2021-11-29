@@ -12,7 +12,7 @@ public class Exercise {
     private String description;
     private int time; // in minutes
 
-    public Exercise(String exerciseName, List<String> muscleGroup, String description, List<String> tools, int time) {
+    public Exercise(String exerciseName, List<String> muscleGroup, List<String> tools,String description, int time) {
         this.exerciseName = exerciseName;
         this.muscleGroup = muscleGroup;
         this.description = description;
@@ -20,7 +20,7 @@ public class Exercise {
         this.time = time;
     }
 
-    public Exercise(String id, String exerciseName, List<String> muscleGroup, String description, List<String> tools, int time) {
+    public Exercise(String id, String exerciseName, List<String> muscleGroup, List<String> tools, String description,  int time) {
         this.id = id;
         this.exerciseName = exerciseName;
         this.muscleGroup = muscleGroup;
@@ -75,5 +75,17 @@ public class Exercise {
 
     public void setTime(int time) {
         this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "id='" + id + '\'' +
+                ", exerciseName='" + exerciseName + '\'' +
+                ", muscleGroup=" + muscleGroup +
+                ", tools=" + tools +
+                ", description='" + description + '\'' +
+                ", time=" + time +
+                '}';
     }
 }

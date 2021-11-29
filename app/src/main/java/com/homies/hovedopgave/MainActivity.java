@@ -3,16 +3,15 @@ package com.homies.hovedopgave;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.homies.hovedopgave.exercises.ExerciseActivity;
 import com.homies.hovedopgave.utils.LanguageHelper;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements Updatable {
     ArrayList<String> users = new ArrayList();
@@ -31,6 +30,11 @@ public class MainActivity extends AppCompatActivity implements Updatable {
         createUserButton.setOnClickListener(v ->{
             Repo.r().addUser(usernameText.getText().toString());
         });
+
+    }
+
+    public void goToExercise(View view) {
+        startActivity(new Intent(getApplicationContext(), ExerciseActivity.class));
     }
 
     @Override

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hovedopgave">
         <activity
+            android:name=".exercises.NewExerciseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".exercises.ExerciseActivity"
+            android:exported="false" />
+        <activity
             android:name=".LanguageActivity"
             android:exported="true" />
         <activity

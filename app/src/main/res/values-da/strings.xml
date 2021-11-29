@@ -6,4 +6,17 @@
     <string name="settings">Indstillinger</string>
     <string name="danish">Dansk</string>
     <string name="english">Engelsk</string>
+    <string name="description">Beskrivelse</string>
+
+    <!-- Written by **Jacob Ravn** jaco8748 -->
+    <string name="new_exercise">New exercise</string>
+    <string name="exercise_name">Exercise name</string>
+    <string name="exercise_muscle_group">Muskel grupper</string>
+    <string name="exercise_tools">værktøjer</string>
+    <string name="exercise_description">beskrivelse</string>
+    <string name="exercise_time">tid</string>
+    <string name="add_exercise">Tilføj øvelse</string>
+    <string name="name">Navn</string>
+    <string name="search">Søg</string>
+    <string name="add">Tilføj</string>
 </resources>
