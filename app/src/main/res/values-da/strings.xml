@@ -6,6 +6,10 @@
     <string name="settings">Indstillinger</string>
     <string name="danish">Dansk</string>
     <string name="english">Engelsk</string>
+    <string name="nav_home">Hjem</string>
+    <string name="nav_programs">Programmer</string>
+    <string name="nav_history">Historik</string>
+    <string name="nav_settings">Indstillinger</string>
     <string name="description">Beskrivelse</string>
 
     <!-- Written by **Jacob Ravn** jaco8748 -->

@@ -1,22 +1,33 @@
 package com.homies.hovedopgave;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+import com.homies.hovedopgave.Fragments.HistoryFragment;
+import com.homies.hovedopgave.Fragments.HomeFragment;
+import com.homies.hovedopgave.Fragments.ProgramsFragment;
+import com.homies.hovedopgave.Fragments.SettingsFragment;
 import com.homies.hovedopgave.exercises.ExerciseActivity;
 import com.homies.hovedopgave.utils.LanguageHelper;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements Updatable {
     ArrayList<String> users = new ArrayList();
-    Button createUserButton;
-    EditText usernameText;
+    //Button createUserButton;
+    //EditText usernameText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,17 +35,18 @@ public class MainActivity extends AppCompatActivity implements Updatable {
         LanguageHelper.languageHelper().setup(this);
         LanguageHelper.languageHelper().loadLocale();
         setContentView(R.layout.activity_main);
-        createUserButton = findViewById(R.id.createUserButton);
-        usernameText = findViewById(R.id.addUsername);
+        //createUserButton = findViewById(R.id.createUserButton);
+        //usernameText = findViewById(R.id.addUsername);
         Repo.r().setup(this, users);
-        createUserButton.setOnClickListener(v ->{
-            Repo.r().addUser(usernameText.getText().toString());
-        });
+        //createUserButton.setOnClickListener(v ->{
+        //    Repo.r().addUser(usernameText.getText().toString());
+        //});
 
-    }
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnItemSelectedListener(navListener);
 
-    public void goToExercise(View view) {
-        startActivity(new Intent(getApplicationContext(), ExerciseActivity.class));
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new HomeFragment()).commit();
     }
 
     @Override
@@ -63,4 +75,31 @@ public class MainActivity extends AppCompatActivity implements Updatable {
 //        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //        startActivity(intent);
 //    }
+
+    // Jonas - Navigation bar
+    private BottomNavigationView.OnItemSelectedListener navListener = item -> {
+        Fragment selectedFragment = null;
+
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                selectedFragment = new HomeFragment();
+                break;
+
+            case R.id.nav_programs:
+                selectedFragment = new ProgramsFragment();
+                break;
+
+            case R.id.nav_history:
+                selectedFragment = new HistoryFragment();
+                break;
+
+            case R.id.nav_settings:
+                selectedFragment = new SettingsFragment();
+                break;
+        }
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                selectedFragment).commit();
+
+        return true;
+    };
 }
