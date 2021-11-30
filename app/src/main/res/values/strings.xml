@@ -5,6 +5,10 @@
     <string name="settings">Settings</string>
     <string name="danish">Danish</string>
     <string name="english">English</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_programs">Programs</string>
+    <string name="nav_history">History</string>
+    <string name="nav_settings">Settings</string>
     <string name="description">Description</string>
 
     <!-- Written by **Jacob Ravn** jaco8748 -->

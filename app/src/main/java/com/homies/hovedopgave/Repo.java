@@ -1,8 +1,15 @@
 package com.homies.hovedopgave;
 
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.homies.hovedopgave.Fragments.HistoryFragment;
+import com.homies.hovedopgave.Fragments.HomeFragment;
+import com.homies.hovedopgave.Fragments.ProgramsFragment;
+import com.homies.hovedopgave.Fragments.SettingsFragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
