@@ -49,6 +49,10 @@ public class MainActivity extends AppCompatActivity implements Updatable {
                 new HomeFragment()).commit();
     }
 
+    public void goToExercise(View view) {
+        startActivity(new Intent(getApplicationContext(), ExerciseActivity.class));
+    }
+
     @Override
     public void update(Object o) {
         System.out.println("We updated: " + users);

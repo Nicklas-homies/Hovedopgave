@@ -37,7 +37,6 @@ public class ExerciseActivity extends AppCompatActivity implements Updatable {
     }
 
 
-
     private void setAdapter() {
         recyclerView = findViewById(R.id.exercise_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
