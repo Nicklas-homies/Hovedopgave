@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,10 +18,10 @@ import com.homies.hovedopgave.Fragments.HomeFragment;
 import com.homies.hovedopgave.Fragments.ProgramsFragment;
 import com.homies.hovedopgave.Fragments.SettingsFragment;
 import com.homies.hovedopgave.exercises.ExerciseActivity;
+import com.homies.hovedopgave.Repos.Repo;
 import com.homies.hovedopgave.utils.LanguageHelper;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements Updatable {
     ArrayList<String> users = new ArrayList();

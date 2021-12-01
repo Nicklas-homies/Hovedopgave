@@ -10,6 +10,10 @@
     <string name="nav_history">History</string>
     <string name="nav_settings">Settings</string>
     <string name="description">Description</string>
+    <string name="exercises">Exercises</string>
+    <string name="setActive">Set active</string>
+    <string name="time">Time</string>
+    <string name="minutes">minutes</string>
 
     <!-- Written by **Jacob Ravn** jaco8748 -->
     <string name="new_exercise">New exercise</string>
