@@ -1,7 +1,5 @@
 package com.homies.hovedopgave.exercises;
 
-import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +18,11 @@ import java.util.ArrayList;
 /* Written by **Jacob Ravn** jaco8748 */
 public class ExerciseRecyclerAdapter extends RecyclerView.Adapter<ExerciseRecyclerAdapter.ViewHolder> {
     ArrayList<Exercise> exercises;
-    FragmentManager context;
+    FragmentManager manager;
 
-    public ExerciseRecyclerAdapter(FragmentManager context, ArrayList<Exercise> exercises) {
+    public ExerciseRecyclerAdapter(FragmentManager manager, ArrayList<Exercise> exercises) {
         this.exercises = exercises;
-        this.context = context;
+        this.manager = manager;
     }
 
 
@@ -57,7 +55,7 @@ public class ExerciseRecyclerAdapter extends RecyclerView.Adapter<ExerciseRecycl
         holder.muscle.setText(exercise.getMuscleGroup().toString());
         holder.detailsBtn.setOnClickListener(v -> {
             ExerciseDialogDetails dialogDetails = new ExerciseDialogDetails(exercise);
-            dialogDetails.show(context, "Info");
+            dialogDetails.show(manager, "Info");
         });
     }
 
