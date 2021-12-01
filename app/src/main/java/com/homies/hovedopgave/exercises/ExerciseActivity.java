@@ -30,7 +30,7 @@ public class ExerciseActivity extends AppCompatActivity implements Updatable {
         super.onCreate(savedInstanceState);
         LanguageHelper.languageHelper().setup(this);
         LanguageHelper.languageHelper().loadLocale();
-        setContentView(R.layout.activity_exercise);
+        setContentView(R.layout.fragment_exercise);
         ExerciseRepo.r().setup(this, exercises);
 
         setAdapter();
