@@ -45,4 +45,3 @@ proguard/
 *.ipr
 *.iws
 .idea/
-/app/src/main/res/drawable/ic_filter.xml
