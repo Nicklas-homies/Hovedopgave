@@ -2,6 +2,7 @@ package com.homies.hovedopgave.models;
 
 import java.util.ArrayList;
 
+/* Written by **Jacob Ravn** jaco8748 */
 public class User {
     String username;
     String password; //need to be hashed
