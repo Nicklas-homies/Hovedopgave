@@ -11,6 +11,7 @@
     <string name="nav_history">Historik</string>
     <string name="nav_settings">Indstillinger</string>
     <string name="description">Beskrivelse</string>
+    <string name="nav_exercise">Øvelser</string>
 
     <!-- Written by **Jacob Ravn** jaco8748 -->
     <string name="new_exercise">Ny øvelse</string>

@@ -14,6 +14,7 @@ import android.widget.EditText;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.homies.hovedopgave.Fragments.ExerciseFragment;
 import com.homies.hovedopgave.Fragments.HistoryFragment;
 import com.homies.hovedopgave.Fragments.HomeFragment;
 import com.homies.hovedopgave.Fragments.ProgramsFragment;
@@ -91,6 +92,10 @@ public class MainActivity extends AppCompatActivity implements Updatable {
 
             case R.id.nav_programs:
                 selectedFragment = new ProgramsFragment();
+                break;
+
+            case R.id.nav_exercises:
+                selectedFragment = new ExerciseFragment();
                 break;
 
             case R.id.nav_history:
