@@ -41,8 +41,8 @@ public class ExerciseFragment extends Fragment implements Updatable {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        LanguageHelper.languageHelper().setup(this);
-//        LanguageHelper.languageHelper().loadLocale();
+        LanguageHelper.languageHelper().setup(getActivity());
+        LanguageHelper.languageHelper().loadLocale();
         ExerciseRepo.r().setup(this, exercises);
     }
 
