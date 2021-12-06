@@ -1,8 +1,6 @@
 package com.homies.hovedopgave.utils;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +19,7 @@ import com.homies.hovedopgave.programs.ProgramDescriptionActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+//Creator: Jonathan
 public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHolder> {
 
     private List<Program> programList;
@@ -46,8 +45,6 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
         for (Exercise ex : program.getExerciseList()) {
             tempExercise.add(ex.getExerciseName());
         }
-        System.out.println("String ex: " + tempExercise);
-        System.out.println("ex: " + program.getExerciseList());
 
         holder.getTimeField().setText(program.getTime() + " " + holder.getMinutes());
         holder.getExerciseList().setText(tempExercise.toString());
