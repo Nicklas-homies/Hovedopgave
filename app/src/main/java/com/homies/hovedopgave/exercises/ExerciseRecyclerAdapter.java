@@ -1,7 +1,5 @@
 package com.homies.hovedopgave.exercises;
 
-import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,20 +18,17 @@ import java.util.ArrayList;
 /* Written by **Jacob Ravn** jaco8748 */
 public class ExerciseRecyclerAdapter extends RecyclerView.Adapter<ExerciseRecyclerAdapter.ViewHolder> {
     ArrayList<Exercise> exercises;
-    FragmentManager context;
+    FragmentManager manager;
 
-    public ExerciseRecyclerAdapter(FragmentManager context, ArrayList<Exercise> exercises) {
+    public ExerciseRecyclerAdapter(FragmentManager manager, ArrayList<Exercise> exercises) {
         this.exercises = exercises;
-        this.context = context;
+        this.manager = manager;
     }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView nameTxt;
         private TextView muscle;
-        private TextView tools;
-        private TextView timeMin;
-        private TextView description;
         private Button detailsBtn;
 
         public ViewHolder(@NonNull View view) {
@@ -41,12 +36,7 @@ public class ExerciseRecyclerAdapter extends RecyclerView.Adapter<ExerciseRecycl
             nameTxt = (TextView) view.findViewById(R.id.list_exercise_name);
             muscle = (TextView) view.findViewById(R.id.list_exercise_muscle_group);
             detailsBtn = (Button) view.findViewById(R.id.list_exercise_btn_details);
-
         }
-
-
-
-
     }
 
     @NonNull
@@ -61,15 +51,11 @@ public class ExerciseRecyclerAdapter extends RecyclerView.Adapter<ExerciseRecycl
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Exercise exercise = exercises.get(position);
-        System.out.println(exercise + "Do I get here even?");
         holder.nameTxt.setText(exercise.getExerciseName());
         holder.muscle.setText(exercise.getMuscleGroup().toString());
-//        holder.tools.setText(exercise.getTools().toString());
-//        holder.timeMin.setText(String.valueOf(exercise.getTime()));
-//        holder.description.setText(exercise.getDescription());
         holder.detailsBtn.setOnClickListener(v -> {
             ExerciseDialogDetails dialogDetails = new ExerciseDialogDetails(exercise);
-            dialogDetails.show(context, "virk?");
+            dialogDetails.show(manager, "Info");
         });
     }
 
