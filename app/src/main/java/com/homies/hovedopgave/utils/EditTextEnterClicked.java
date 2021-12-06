@@ -5,7 +5,10 @@ import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+<<<<<<< HEAD
 import android.widget.ImageButton;
+=======
+>>>>>>> origin/JacqquesMasterpiece
 import android.widget.TextView;
 
 /* Written by **Jacob Ravn** jaco8748 */
