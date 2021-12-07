@@ -35,10 +35,10 @@ public class ExerciseRepo {
                 for (DocumentSnapshot snap : values.getDocuments()) {
                     Map<String, Object> mapExercise = snap.getData();
                     if (mapExercise.size() != 0) {
-                        ArrayList<String> muscleGroup = new ArrayList<>();
-                        muscleGroup.add((String) mapExercise.get("muscleGroup"));
-                        ArrayList<String> tools = new ArrayList<>();
-                        tools.add((String) mapExercise.get("tools"));
+                        ArrayList<String> muscleGroup;
+                        muscleGroup = (ArrayList<String>) mapExercise.get("muscleGroup");
+                        ArrayList<String> tools;
+                        tools = (ArrayList<String>) mapExercise.get("tools");
                         exercises.add(new Exercise(snap.getId(), muscleGroup, tools, (String) mapExercise.get("description"), Integer.valueOf((String) mapExercise.get("time")) ));
                     } else {
                         System.out.println("Error getting users");

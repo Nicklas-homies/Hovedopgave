@@ -29,7 +29,7 @@ public class ProgramDescriptionActivity extends AppCompatActivity implements Upd
     private RecyclerView recyclerView;
 
     FragmentManager manager = getSupportFragmentManager();
-    ExerciseRecyclerAdapter adapter = new ExerciseRecyclerAdapter(manager, data);
+    ExerciseRecyclerAdapter adapter = new ExerciseRecyclerAdapter(manager, data, false);
 
     private Program mProgram;
 
@@ -58,7 +58,7 @@ public class ProgramDescriptionActivity extends AppCompatActivity implements Upd
     }
 
     private void setAdapter() {
-        recyclerView = findViewById(R.id.exercise_recycler_view);
+        recyclerView = findViewById(R.id.new_exercise_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 

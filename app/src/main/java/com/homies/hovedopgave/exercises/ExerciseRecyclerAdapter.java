@@ -1,7 +1,5 @@
 package com.homies.hovedopgave.exercises;
 
-import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.homies.hovedopgave.R;
+import com.homies.hovedopgave.interfaces.NewProgramInterface;
 import com.homies.hovedopgave.models.Exercise;
 
 import java.util.ArrayList;
@@ -20,33 +19,36 @@ import java.util.ArrayList;
 /* Written by **Jacob Ravn** jaco8748 */
 public class ExerciseRecyclerAdapter extends RecyclerView.Adapter<ExerciseRecyclerAdapter.ViewHolder> {
     ArrayList<Exercise> exercises;
-    FragmentManager context;
+    FragmentManager manager;
+    boolean isAdd;
+    NewProgramInterface parent;
 
-    public ExerciseRecyclerAdapter(FragmentManager context, ArrayList<Exercise> exercises) {
+    public ExerciseRecyclerAdapter(FragmentManager manager, ArrayList<Exercise> exercises, boolean isAdd) {
         this.exercises = exercises;
-        this.context = context;
+        this.manager = manager;
+        this.isAdd = isAdd;
     }
 
+    public ExerciseRecyclerAdapter(FragmentManager manager, ArrayList<Exercise> exercises, boolean isAdd, NewProgramInterface parent){
+        this.exercises = exercises;
+        this.manager = manager;
+        this.isAdd = isAdd;
+        this.parent = parent;
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView nameTxt;
         private TextView muscle;
-        private TextView tools;
-        private TextView timeMin;
-        private TextView description;
         private Button detailsBtn;
+        private Button addBtn;
 
         public ViewHolder(@NonNull View view) {
             super(view);
             nameTxt = (TextView) view.findViewById(R.id.list_exercise_name);
             muscle = (TextView) view.findViewById(R.id.list_exercise_muscle_group);
             detailsBtn = (Button) view.findViewById(R.id.list_exercise_btn_details);
-
+            addBtn = (Button) view.findViewById(R.id.list_exercise_add_button);
         }
-
-
-
-
     }
 
     @NonNull
@@ -61,15 +63,19 @@ public class ExerciseRecyclerAdapter extends RecyclerView.Adapter<ExerciseRecycl
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Exercise exercise = exercises.get(position);
-        System.out.println(exercise + "Do I get here even?");
         holder.nameTxt.setText(exercise.getExerciseName());
         holder.muscle.setText(exercise.getMuscleGroup().toString());
-//        holder.tools.setText(exercise.getTools().toString());
-//        holder.timeMin.setText(String.valueOf(exercise.getTime()));
-//        holder.description.setText(exercise.getDescription());
+
+        if (!isAdd) {
+            holder.addBtn.setVisibility(View.GONE);
+        }
+
         holder.detailsBtn.setOnClickListener(v -> {
             ExerciseDialogDetails dialogDetails = new ExerciseDialogDetails(exercise);
-            dialogDetails.show(context, "virk?");
+            dialogDetails.show(manager, "Info");
+        });
+        holder.addBtn.setOnClickListener(v -> {
+            parent.listUpdated(exercise.getExerciseName());
         });
     }
 

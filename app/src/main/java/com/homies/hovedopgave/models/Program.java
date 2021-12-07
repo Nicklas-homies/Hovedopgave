@@ -37,6 +37,11 @@ public class Program {
         this.exerciseListString = exerciseListString;
     }
 
+    public Program(List<String> exerciseListString, String programName) {
+        this.programName = programName;
+        this.exerciseListString = exerciseListString;
+    }
+
     public void populateMuscleGroup(){
         for (Exercise exercise : this.exerciseList) {
             muscleGroup.addAll(exercise.getMuscleGroup());

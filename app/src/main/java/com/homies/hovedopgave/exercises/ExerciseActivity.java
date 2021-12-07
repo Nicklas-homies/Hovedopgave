@@ -23,7 +23,7 @@ public class ExerciseActivity extends AppCompatActivity implements Updatable {
     ArrayList<Exercise> data = new ArrayList<>();
     private RecyclerView recyclerView;
     FragmentManager manager = getSupportFragmentManager();
-    ExerciseRecyclerAdapter adapter = new ExerciseRecyclerAdapter(manager, data);
+    ExerciseRecyclerAdapter adapter = new ExerciseRecyclerAdapter(manager, data, false);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,8 @@ public class ExerciseActivity extends AppCompatActivity implements Updatable {
         setAdapter();
     }
 
-
-
     private void setAdapter() {
-        recyclerView = findViewById(R.id.exercise_recycler_view);
+        recyclerView = findViewById(R.id.new_exercise_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 

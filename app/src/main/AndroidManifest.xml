@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".programs.NewProgramActivity"
+            android:exported="true" />
+        <activity
             android:name=".programs.ProgramDescriptionActivity"
             android:exported="true" />
         <activity

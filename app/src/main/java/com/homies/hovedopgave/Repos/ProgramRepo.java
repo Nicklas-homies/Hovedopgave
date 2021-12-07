@@ -1,12 +1,16 @@
 package com.homies.hovedopgave.Repos;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.homies.hovedopgave.Updatable;
 import com.homies.hovedopgave.models.Program;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 //Creator: Jonathan
@@ -45,6 +49,14 @@ public class ProgramRepo {
           }
           activity.update(programsExerciseStringFormat);
         });
+    }
+
+    public void saveProgram(Program program){
+        Map<String, Object> programToAdd = new HashMap<>();
+        programToAdd.put("programName", program.getProgramName());
+        programToAdd.put("exerciseList", program.getExerciseListString());
+
+        db.collection(PROGRAMS).add(programToAdd);
     }
 
     public void getProgramById(String id, Updatable updatable){
