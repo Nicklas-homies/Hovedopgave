@@ -5,10 +5,8 @@ import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-<<<<<<< HEAD
+
 import android.widget.ImageButton;
-=======
->>>>>>> origin/JacqquesMasterpiece
 import android.widget.TextView;
 
 /* Written by **Jacob Ravn** jaco8748 */
@@ -54,7 +52,6 @@ public class EditTextEnterClicked {
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == EditorInfo.IME_ACTION_GO || keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
                     nextEditText.requestFocus();
-                    System.out.println("worked?");
                 }
 
                 return true;

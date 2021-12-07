@@ -22,12 +22,11 @@
         android:id="@+id/exercise_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_new_exercise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_text_person_name" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_filter_muscle" />
 
     <TextView
         android:id="@+id/exercise_head"
@@ -51,5 +50,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exercise_head" />
+
+    <EditText
+        android:id="@+id/edit_text_filter_muscle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/filter_muscle"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textSize="@dimen/mediumText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_text_person_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

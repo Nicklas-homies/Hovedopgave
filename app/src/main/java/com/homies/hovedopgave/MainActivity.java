@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.homies.hovedopgave.Fragments.ExerciseFragment;
 import com.homies.hovedopgave.Fragments.HistoryFragment;
 import com.homies.hovedopgave.Fragments.HomeFragment;
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements Updatable {
     ArrayList<String> users = new ArrayList();
     //Button createUserButton;
     //EditText usernameText;
+    public BottomNavigationView bottomNav;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements Updatable {
         //    Repo.r().addUser(usernameText.getText().toString());
         //});
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnItemSelectedListener(navListener);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -51,28 +56,18 @@ public class MainActivity extends AppCompatActivity implements Updatable {
         startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
     }
 
-//    public void langClicked(View v){
-//        String languageToLoad  = "en";
-//        System.out.println(Locale.getDefault().getLanguage());
-//        if (Locale.getDefault().getLanguage().equals("en")){
-//            languageToLoad = "da";
-//        }
-//        System.out.println("langToLoad: " + languageToLoad);
-//        Locale locale = new Locale(languageToLoad);
-//        Locale.setDefault(locale);
-//        Configuration config = new Configuration();
-//        config.locale = locale;
-//        this.getResources().updateConfiguration(config,this.getResources().getDisplayMetrics());
-//
-//        Intent intent = new Intent(this, this.getClass());
-//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        startActivity(intent);
-//    }
+    // Jacobs fede redirect
+    public void homeIconRedirect(View view) {
+        Menu menu = bottomNav.getMenu();
+        MenuItem menuItem = menu.findItem(R.id.nav_home);
+        menuItem.setChecked(true);
+        menu.performIdentifierAction(R.id.nav_home, 0);
+    }
+
 
     // Jonas - Navigation bar
     private BottomNavigationView.OnItemSelectedListener navListener = item -> {
         Fragment selectedFragment = null;
-
         switch (item.getItemId()) {
             case R.id.nav_home:
                 selectedFragment = new HomeFragment();

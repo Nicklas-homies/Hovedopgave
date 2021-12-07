@@ -46,31 +46,9 @@ public class ExerciseFragment extends Fragment implements Updatable {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_exercise, container, false);
         setAdapter(view);
+        setChangeListenerSearch(view);
+        setChangeListenerFilter(view);
 
-        ((TextView) view.findViewById(R.id.edit_text_text_person_name)).addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                data.clear();
-                data.addAll(exercises);
-                List<Exercise> filterData;
-                filterData = data.stream()
-                        .filter(exercise -> exercise.getExerciseName().toLowerCase().contains(charSequence.toString().toLowerCase()))
-                        .collect(Collectors.toList());
-                data.clear();
-                data.addAll(filterData);
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
         view.findViewById(R.id.btn_new_exercise).setOnClickListener(view1 -> openNewExerciseDialog(view1));
         return view;
     }
@@ -98,6 +76,73 @@ public class ExerciseFragment extends Fragment implements Updatable {
         data.clear();
         data.addAll(exercises);
         adapter.notifyDataSetChanged();
+    }
+
+    private void setChangeListenerFilter(View view) {
+        ((TextView) view.findViewById(R.id.edit_text_filter_muscle)).addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                filter(view);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
+    private void setChangeListenerSearch(View view) {
+        ((TextView) view.findViewById(R.id.edit_text_text_person_name)).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                filter(view);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void filter(View view) {
+        data.clear();
+        data.addAll(exercises);
+        CharSequence searchKeyword = ((TextView) view.findViewById(R.id.edit_text_text_person_name)).getText();
+        CharSequence filterKeyword = ((TextView) view.findViewById(R.id.edit_text_filter_muscle)).getText();
+        List<Exercise> filterData;
+        filterData = data.stream()
+                .filter(exercise -> exercise.getExerciseName().toLowerCase().contains(searchKeyword.toString().toLowerCase())
+                        && eachContainsLower((ArrayList<String>) exercise.getMuscleGroup(), filterKeyword.toString()))
+                .collect(Collectors.toList());
+        data.clear();
+        data.addAll(filterData);
+        adapter.notifyDataSetChanged();
+    }
+
+    private boolean eachContainsLower(ArrayList<String> list, String keyword) {
+        for (String compare : list) {
+            if (compare.toLowerCase().contains(keyword.toLowerCase())) {
+                System.out.println(keyword);
+                return true;
+            }
+        }
+        return false;
     }
 
     public void openNewExerciseDialog(View view) {
