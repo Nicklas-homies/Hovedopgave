@@ -30,7 +30,8 @@
         android:text="@string/new_program"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/rv_programs"
-        app:layout_constraintStart_toStartOf="@+id/rv_programs" />
+        app:layout_constraintStart_toStartOf="@+id/rv_programs"
+        app:backgroundTint="@null"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

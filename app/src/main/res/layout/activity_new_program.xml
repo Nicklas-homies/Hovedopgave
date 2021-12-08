@@ -105,6 +105,7 @@
         android:textColor="@color/button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/exercise_recycler_view"
-        app:layout_constraintStart_toStartOf="@+id/exercise_recycler_view" />
+        app:layout_constraintStart_toStartOf="@+id/exercise_recycler_view"
+        app:backgroundTint="@null"/>/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

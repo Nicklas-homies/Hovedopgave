@@ -67,7 +67,7 @@ public class ProgramDescriptionActivity extends AppCompatActivity implements Upd
 
     @Override
     public void update(Object o) {
-        if (o != null){
+        if (o != null && o instanceof Program){
             mProgram = (Program) o;
             System.out.println(mProgram.toString());
             ExerciseRepo.r().getExercisesById(getIntent().getStringArrayListExtra("exerciseList"), this);

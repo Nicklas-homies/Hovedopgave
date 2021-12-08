@@ -13,7 +13,6 @@ import com.homies.hovedopgave.Fragments.HistoryFragment;
 import com.homies.hovedopgave.Fragments.HomeFragment;
 import com.homies.hovedopgave.Fragments.ProgramsFragment;
 import com.homies.hovedopgave.Fragments.SettingsFragment;
-import com.homies.hovedopgave.exercises.ExerciseActivity;
 import com.homies.hovedopgave.Repos.Repo;
 import com.homies.hovedopgave.utils.LanguageHelper;
 
