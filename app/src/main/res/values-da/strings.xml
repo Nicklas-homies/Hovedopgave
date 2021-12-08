@@ -2,15 +2,17 @@
 <resources>
     <string name="app_name">Hovedopgave</string>
     <string name="username">Brugernavn</string>
-    <string name="language">Sprog</string>
+    <string name="language">Skift Sprog</string>
     <string name="settings">Indstillinger</string>
     <string name="danish">Dansk</string>
     <string name="english">Engelsk</string>
+    <string name="description">Beskrivelse</string>
+
+    <!-- Navigation bar Jonas -->
     <string name="nav_home">Hjem</string>
     <string name="nav_programs">Programmer</string>
     <string name="nav_history">Historik</string>
-    <string name="nav_settings">Indstillinger</string>
-    <string name="description">Beskrivelse</string>
+    <string name="nav_profile">Profil</string>
     <string name="nav_exercise">Øvelser</string>
 
     <!-- Written by **Jacob Ravn** jaco8748 -->
@@ -24,4 +26,32 @@
     <string name="name">Navn</string>
     <string name="search">Søg</string>
     <string name="add">Tilføj</string>
+
+    <!-- Login in settings Jonas -->
+    <string name="email_login">Email Adresse</string>
+    <string name="password_login">Adgangskode</string>
+    <string name="forgotpassword_login">Glemt Adgangskode?</string>
+    <string name="register_login">Registrer</string>
+    <string name="login_button">Log ind</string>
+    <string name="history_button">Historik</string>
+    <string name="friends_button">Venner</string>
+    <string name="loginlogout_button">Log ind / log ud</string>
+    <string name="login_succes">Login fuldført</string>
+    <string name="logout_button">Logout</string>
+    <string name="login_unsucces">Login fejlede! Tjek din information</string>
+    <string name="login_verify">Tjek din mail for at bekræfte din konto</string>
+    <string name="user_logged_in">Logget ind som: </string>
+    <string name="user_not_logged_in">Ikke logget ind</string>
+    <string name="reset_button">Nulstil adgangskode</string>
+    <string name="reset_password_succes">Tjek din email for at nulstille adgangskode</string>
+    <string name="reset_password_unsucces">Prøv igen!</string>
+
+    <!-- Register -->
+    <string name="register_button">Tilmeld bruger</string>
+    <string name="email_empty">Email skal udfyldes!</string>
+    <string name="email_pattern">Angiv gyldig email adresse!</string>
+    <string name="password_empty">Adgangskode skal udfyldes!</string>
+    <string name="password_length">Adgangskoden skal være mindst 6 tegn!</string>
+    <string name="registeruser_succes">Bruger blev oprettet</string>
+    <string name="registeruser_unsucces">Bruger eksisterer allerede</string>
 </resources>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_and_text">
+
+    <!-- Login / Logout button constrain -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutLoginLogout"
+        android:layout_width="348dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/radius_button_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/loginLogoutButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/normal_button_background"
+            android:text="@string/loginlogout_button"
+            android:textColor="@color/background_and_text"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- History button constrain -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutHistory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/radius_button_20"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayoutLoginLogout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayoutLoginLogout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutLoginLogout">
+
+        <Button
+            android:id="@+id/historyButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/normal_button_background"
+            android:text="@string/history_button"
+            android:textColor="@color/background_and_text"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- Friends button constrain -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutFriends"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/radius_button_20"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayoutHistory"
+        app:layout_constraintStart_toStartOf="@id/constraintLayoutHistory"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayoutHistory">
+
+        <Button
+            android:id="@+id/friendsButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/normal_button_background"
+            android:text="@string/friends_button"
+            android:textColor="@color/background_and_text"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- language button constrain -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutLanguage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/radius_button_20"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayoutFriends"
+        app:layout_constraintStart_toStartOf="@id/constraintLayoutFriends"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayoutFriends">
+
+        <Button
+            android:id="@+id/danishButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/normal_button_background"
+            android:onClick="languageClicked"
+            android:text="@string/language"
+            android:textColor="@color/background_and_text"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Logout button constrain -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutLogout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/radius_button_20"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayoutLanguage"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayoutLanguage"
+        app:layout_constraintTop_toBottomOf="@+id/userLoggedIn">
+
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/normal_button_background"
+            android:onClick="onClickLogout"
+            android:text="@string/logout_button"
+            android:textColor="@color/background_and_text"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/userLoggedInTittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/user_logged_in"
+        android:textColor="@color/normal_button_background"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayoutLanguage"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayoutLanguage"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutLanguage" />
+
+    <TextView
+        android:id="@+id/userLoggedIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="@string/user_not_logged_in"
+        android:textColor="@color/normal_button_background"
+        android:textColorHint="@color/normal_button_background"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayoutLanguage"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayoutLanguage"
+        app:layout_constraintTop_toBottomOf="@+id/userLoggedInTittle" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

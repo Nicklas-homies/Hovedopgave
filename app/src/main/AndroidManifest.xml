@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".Login.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Login.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Login.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".exercises.NewExerciseActivity"
             android:exported="false" />
         <activity
@@ -17,9 +26,6 @@
             android:exported="false" />
         <activity
             android:name=".LanguageActivity"
-            android:exported="true" />
-        <activity
-            android:name=".SettingsActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

@@ -8,4 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bottomNav">#628D85</color>
+    <color name="background_and_text">#E7E5DF</color>
+    <color name="program_background">#757083</color>
+    <color name="set_active_background">#44BBA4</color>
+    <color name="normal_button_background">#628D85</color>
+    <color name="button_text">#787373</color>
 </resources>
