@@ -1,18 +1,14 @@
 package com.homies.hovedopgave;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
+import com.homies.hovedopgave.Fragments.ExerciseFragment;
 import com.homies.hovedopgave.Fragments.HistoryFragment;
 import com.homies.hovedopgave.Fragments.HomeFragment;
 import com.homies.hovedopgave.Fragments.ProgramsFragment;
@@ -86,6 +82,10 @@ public class MainActivity extends AppCompatActivity implements Updatable {
 
             case R.id.nav_programs:
                 selectedFragment = new ProgramsFragment();
+                break;
+
+            case R.id.nav_exercises:
+                selectedFragment = new ExerciseFragment();
                 break;
 
             case R.id.nav_history:
