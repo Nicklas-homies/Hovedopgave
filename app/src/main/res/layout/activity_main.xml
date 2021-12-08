@@ -54,7 +54,7 @@
 
     <FrameLayout
         android:id="@+id/fragment_container"
-        android:layout_width="413dp"
+        android:layout_width="match_parent"
         android:layout_height="678dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,5 +72,6 @@
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
         app:itemBackground="@color/bottomNav" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

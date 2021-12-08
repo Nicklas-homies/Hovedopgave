@@ -10,6 +10,7 @@ import android.content.res.Configuration;
 
 import java.util.Locale;
 
+//Creator: Alle
 public class LanguageHelper{
 
     private static LanguageHelper langHelp = new LanguageHelper();

@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/padding">
+    android:padding="@dimen/padding"
+    android:background="@drawable/rounded_corner"
+    android:layout_margin="@dimen/padding" >
 
     <TextView
         android:id="@+id/list_exercise_name"
@@ -20,18 +22,36 @@
         android:id="@+id/list_exercise_muscle_group"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:text="Muscle groups"
         android:textSize="@dimen/normalText"
-        app:layout_constraintBottom_toBottomOf="@+id/list_exercise_btn_details"
         app:layout_constraintEnd_toStartOf="@+id/list_exercise_btn_details"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list_exercise_name" />
+        app:layout_constraintTop_toTopOf="@+id/list_exercise_btn_details" />
 
     <Button
         android:id="@+id/list_exercise_btn_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/set_active_background"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:text="@string/description"
+        app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list_exercise_name" />
+        app:layout_constraintTop_toBottomOf="@+id/list_exercise_name" />/>
+
+    <Button
+        android:id="@+id/list_exercise_add_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/set_active_background"
+        android:text="@string/add"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/list_exercise_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/list_exercise_btn_details"
+        app:layout_constraintTop_toTopOf="@+id/list_exercise_name" />/>
 </androidx.constraintlayout.widget.ConstraintLayout>

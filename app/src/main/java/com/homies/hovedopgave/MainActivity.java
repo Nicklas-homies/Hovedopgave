@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements Updatable {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnItemSelectedListener(navListener);
-        System.out.println(isLoggedOut);
+
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
 

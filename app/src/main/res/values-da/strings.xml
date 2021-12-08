@@ -6,18 +6,25 @@
     <string name="settings">Indstillinger</string>
     <string name="danish">Dansk</string>
     <string name="english">Engelsk</string>
-    <string name="description">Beskrivelse</string>
-
-    <!-- Navigation bar Jonas -->
     <string name="nav_home">Hjem</string>
     <string name="nav_programs">Programmer</string>
     <string name="nav_history">Historik</string>
+    <string name="nav_settings">Indstillinger</string>
+    <string name="description">Beskrivelse</string>
+    <string name="exercises">Øvelser</string>
+    <string name="setActive">Sæt aktiv</string>
+    <string name="time">Tid</string>
+    <string name="minutes">minutter</string>
+    <string name="new_program">Nyt program</string>
+    <string name="program_name">Program navn</string>
+    <string name="save">Gem</string>
+    <string name="new_program_error">Program navn eller ævelses liste må ikke være tom</string>
     <string name="nav_profile">Profil</string>
     <string name="nav_exercise">Øvelser</string>
 
     <!-- Written by **Jacob Ravn** jaco8748 -->
-    <string name="new_exercise">New exercise</string>
-    <string name="exercise_name">Exercise name</string>
+    <string name="new_exercise">Ny øvelse</string>
+    <string name="exercise_name">Øvelses navn</string>
     <string name="exercise_muscle_group">Muskel grupper</string>
     <string name="exercise_tools">værktøjer</string>
     <string name="exercise_description">beskrivelse</string>
