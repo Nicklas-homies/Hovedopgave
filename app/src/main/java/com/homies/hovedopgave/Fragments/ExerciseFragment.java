@@ -49,8 +49,8 @@ public class ExerciseFragment extends Fragment implements Updatable {
 
     private void setAdapter(View view) {
         manager = getParentFragmentManager();
-        adapter = new ExerciseRecyclerAdapter(manager, data);
-        recyclerView = view.findViewById(R.id.exercise_recycler_view);
+        adapter = new ExerciseRecyclerAdapter(manager, data, false);
+        recyclerView = view.findViewById(R.id.new_exercise_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 

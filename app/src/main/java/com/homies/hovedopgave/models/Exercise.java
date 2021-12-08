@@ -29,6 +29,18 @@ public class Exercise {
         this.time = time;
     }
 
+    @Override
+    public String toString() {
+        return "Exercise{" +
+                "id='" + id + '\'' +
+                ", exerciseName='" + exerciseName + '\'' +
+                ", muscleGroup=" + muscleGroup +
+                ", tools=" + tools +
+                ", description='" + description + '\'' +
+                ", time=" + time +
+                "}\n";
+    }
+
     public String getId() {
         return id;
     }
@@ -75,17 +87,5 @@ public class Exercise {
 
     public void setTime(int time) {
         this.time = time;
-    }
-
-    @Override
-    public String toString() {
-        return "Exercise{" +
-                "id='" + id + '\'' +
-                ", exerciseName='" + exerciseName + '\'' +
-                ", muscleGroup=" + muscleGroup +
-                ", tools=" + tools +
-                ", description='" + description + '\'' +
-                ", time=" + time +
-                '}';
     }
 }

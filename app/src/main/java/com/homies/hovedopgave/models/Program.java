@@ -8,6 +8,7 @@ public class Program {
     private String id;
     private String programName;
     private List<Exercise> exerciseList;
+    private List<String> exerciseListString;
     private Set<String> muscleGroup = new HashSet();
     private Set<String> toolsList = new HashSet();
     private int time = 0; //in minutes
@@ -30,6 +31,17 @@ public class Program {
         calculateTime();
     }
 
+    public Program(String id, List<String> exerciseListString, String programName) {
+        this.id = id;
+        this.programName = programName;
+        this.exerciseListString = exerciseListString;
+    }
+
+    public Program(List<String> exerciseListString, String programName) {
+        this.programName = programName;
+        this.exerciseListString = exerciseListString;
+    }
+
     public void populateMuscleGroup(){
         for (Exercise exercise : this.exerciseList) {
             muscleGroup.addAll(exercise.getMuscleGroup());
@@ -46,6 +58,19 @@ public class Program {
         for (Exercise exercise : this.exerciseList) {
             this.time += exercise.getTime();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Program{" +
+                "id='" + id + '\'' +
+                ", programName='" + programName + '\'' +
+                ", exerciseList=" + exerciseList +
+                ", exerciseListString=" + exerciseListString +
+                ", muscleGroup=" + muscleGroup +
+                ", toolsList=" + toolsList +
+                ", time=" + time +
+                "}\n";
     }
 
     public String getId() {
@@ -70,6 +95,14 @@ public class Program {
 
     public int getTime() {
         return time;
+    }
+
+    public List<String> getExerciseListString() {
+        return exerciseListString;
+    }
+
+    public void setExerciseListString(List<String> exerciseListString) {
+        this.exerciseListString = exerciseListString;
     }
 
     public void setId(String id) {

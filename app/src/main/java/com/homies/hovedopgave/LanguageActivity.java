@@ -28,7 +28,6 @@ public class LanguageActivity extends AppCompatActivity {
     public void langClicked(View v){
         Button button = (Button) v;
         String lang = button.getText().toString().toLowerCase().substring(0, 2);
-        System.out.println(lang);
         String languageToLoad;
         switch (lang){
             case "da":
