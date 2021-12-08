@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -48,6 +49,8 @@ public class ExerciseFragment extends Fragment implements Updatable {
         setAdapter(view);
         setChangeListenerSearch(view);
         setChangeListenerFilter(view);
+        setChangeListenerMinTime(view);
+        setChangeListenerMaxTime(view);
 
         view.findViewById(R.id.btn_new_exercise).setOnClickListener(view1 -> openNewExerciseDialog(view1));
         return view;
@@ -76,6 +79,46 @@ public class ExerciseFragment extends Fragment implements Updatable {
         data.clear();
         data.addAll(exercises);
         adapter.notifyDataSetChanged();
+    }
+
+    private void setChangeListenerMaxTime(View view) {
+        ((TextView) view.findViewById(R.id.max_time_filter)).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                filter(view);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
+    private void setChangeListenerMinTime(View view) {
+        ((TextView) view.findViewById(R.id.min_time_filter)).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                filter(view);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     private void setChangeListenerFilter(View view) {
@@ -125,17 +168,37 @@ public class ExerciseFragment extends Fragment implements Updatable {
         data.addAll(exercises);
         CharSequence searchKeyword = ((TextView) view.findViewById(R.id.edit_text_text_person_name)).getText();
         CharSequence filterKeyword = ((TextView) view.findViewById(R.id.edit_text_filter_muscle)).getText();
+        String minTimeString = ((TextView) view.findViewById(R.id.min_time_filter)).getText().toString();
+        String maxTimeString = ((TextView) view.findViewById(R.id.max_time_filter)).getText().toString();
+        int minTime;
+        int maxTime;
+        if (minTimeString.equals("")) {
+            minTime = -1;
+        }
+        else {
+            minTime = Integer.valueOf(minTimeString);
+        }
+        if (maxTimeString.equals("")) {
+            maxTime = Integer.MAX_VALUE;
+        }
+        else {
+            maxTime = Integer.valueOf(maxTimeString);
+        }
+        System.out.println(minTime);
+        System.out.println(maxTime);
         List<Exercise> filterData;
         filterData = data.stream()
                 .filter(exercise -> exercise.getExerciseName().toLowerCase().contains(searchKeyword.toString().toLowerCase())
-                        && eachContainsLower((ArrayList<String>) exercise.getMuscleGroup(), filterKeyword.toString()))
+                        && (eachContainsLower((ArrayList<String>) exercise.getMuscleGroup(), filterKeyword.toString())
+                        || eachContainsLower((ArrayList<String>) exercise.getTools(), filterKeyword.toString()))
+                        && exercise.getTime() < maxTime && exercise.getTime() > minTime)
                 .collect(Collectors.toList());
         data.clear();
         data.addAll(filterData);
         adapter.notifyDataSetChanged();
     }
 
-    private boolean eachContainsLower(ArrayList<String> list, String keyword) {
+    private boolean eachContainsLower(@NonNull ArrayList<String> list, String keyword) {
         for (String compare : list) {
             if (compare.toLowerCase().contains(keyword.toLowerCase())) {
                 System.out.println(keyword);

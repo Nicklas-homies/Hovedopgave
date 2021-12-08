@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/padding"
+    android:paddingLeft="@dimen/padding"
+    android:paddingRight="@dimen/padding"
     tools:context=".Fragments.ExerciseFragment">
 
     <Button
@@ -22,11 +23,10 @@
         android:id="@+id/exercise_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_new_exercise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_filter_muscle" />
+        app:layout_constraintTop_toBottomOf="@+id/min_time_filter" />
 
     <TextView
         android:id="@+id/exercise_head"
@@ -42,11 +42,10 @@
         android:id="@+id/edit_text_text_person_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:hint="@string/search"
-        android:textSize="@dimen/mediumText"
         android:inputType="text"
         android:minHeight="48dp"
+        android:textSize="@dimen/mediumText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exercise_head" />
@@ -63,5 +62,36 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_text_person_name" />
+
+    <EditText
+        android:id="@+id/min_time_filter"
+
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:hint="@string/min_time"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textSize="@dimen/mediumText"
+        app:layout_constraintEnd_toStartOf="@+id/max_time_filter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_filter_muscle"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.5"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/max_time_filter"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="4dp"
+        android:hint="@string/max_time"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textSize="@dimen/mediumText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_filter_muscle"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.5"
+        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
