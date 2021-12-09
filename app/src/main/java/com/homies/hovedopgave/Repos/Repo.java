@@ -1,4 +1,4 @@
-package com.homies.hovedopgave;
+package com.homies.hovedopgave.Repos;
 
 import androidx.fragment.app.Fragment;
 
@@ -10,6 +10,7 @@ import com.homies.hovedopgave.Fragments.HistoryFragment;
 import com.homies.hovedopgave.Fragments.HomeFragment;
 import com.homies.hovedopgave.Fragments.ProgramsFragment;
 import com.homies.hovedopgave.Fragments.SettingsFragment;
+import com.homies.hovedopgave.Updatable;
 
 import java.util.ArrayList;
 import java.util.HashMap;

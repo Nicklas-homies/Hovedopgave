@@ -12,4 +12,5 @@
     <color name="program_background">#757083</color>
     <color name="set_active_background">#44BBA4</color>
     <color name="normal_button_background">#628D85</color>
+    <color name="button_text">#787373</color>
 </resources>

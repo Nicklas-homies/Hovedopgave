@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.homies.hovedopgave.R;
+import com.homies.hovedopgave.interfaces.NewProgramInterface;
 import com.homies.hovedopgave.models.Exercise;
 
 import java.util.ArrayList;
@@ -19,23 +20,34 @@ import java.util.ArrayList;
 public class ExerciseRecyclerAdapter extends RecyclerView.Adapter<ExerciseRecyclerAdapter.ViewHolder> {
     ArrayList<Exercise> exercises;
     FragmentManager manager;
+    boolean isAdd;
+    NewProgramInterface parent;
 
-    public ExerciseRecyclerAdapter(FragmentManager manager, ArrayList<Exercise> exercises) {
+    public ExerciseRecyclerAdapter(FragmentManager manager, ArrayList<Exercise> exercises, boolean isAdd) {
         this.exercises = exercises;
         this.manager = manager;
+        this.isAdd = isAdd;
     }
 
+    public ExerciseRecyclerAdapter(FragmentManager manager, ArrayList<Exercise> exercises, boolean isAdd, NewProgramInterface parent){
+        this.exercises = exercises;
+        this.manager = manager;
+        this.isAdd = isAdd;
+        this.parent = parent;
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView nameTxt;
         private TextView muscle;
         private Button detailsBtn;
+        private Button addBtn;
 
         public ViewHolder(@NonNull View view) {
             super(view);
             nameTxt = (TextView) view.findViewById(R.id.list_exercise_name);
             muscle = (TextView) view.findViewById(R.id.list_exercise_muscle_group);
             detailsBtn = (Button) view.findViewById(R.id.list_exercise_btn_details);
+            addBtn = (Button) view.findViewById(R.id.list_exercise_add_button);
         }
     }
 
@@ -53,9 +65,17 @@ public class ExerciseRecyclerAdapter extends RecyclerView.Adapter<ExerciseRecycl
         Exercise exercise = exercises.get(position);
         holder.nameTxt.setText(exercise.getExerciseName());
         holder.muscle.setText(exercise.getMuscleGroup().toString());
+
+        if (!isAdd) {
+            holder.addBtn.setVisibility(View.GONE);
+        }
+
         holder.detailsBtn.setOnClickListener(v -> {
             ExerciseDialogDetails dialogDetails = new ExerciseDialogDetails(exercise);
             dialogDetails.show(manager, "Info");
+        });
+        holder.addBtn.setOnClickListener(v -> {
+            parent.listUpdated(exercise.getExerciseName());
         });
     }
 
