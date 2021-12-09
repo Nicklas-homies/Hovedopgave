@@ -29,6 +29,9 @@
     <string name="exercise_time">Time</string>
     <string name="add_exercise">Add Exercise</string>
     <string name="name">Name</string>
-    <string name="search">Search</string>
+    <string name="search">Search for exercise</string>
     <string name="add">Add</string>
+    <string name="filter_muscle">Search for muscle and tool</string>
+    <string name="min_time">Min time</string>
+    <string name="max_time">Max time</string>
 </resources>
