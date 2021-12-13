@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -22,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements Updatable {
 
     private boolean isLoggedOut = false;
 
+    public BottomNavigationView bottomNav;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements Updatable {
         LanguageHelper.languageHelper().loadLocale();
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnItemSelectedListener(navListener);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -54,11 +59,18 @@ public class MainActivity extends AppCompatActivity implements Updatable {
         System.out.println("We updated: ");
     }
 
+    // Jacobs fede redirect
+    public void homeIconRedirect(View view) {
+        Menu menu = bottomNav.getMenu();
+        MenuItem menuItem = menu.findItem(R.id.nav_home);
+        menuItem.setChecked(true);
+        menu.performIdentifierAction(R.id.nav_home, 0);
+    }
+
 
     // Jonas - Navigation bar
     private BottomNavigationView.OnItemSelectedListener navListener = item -> {
         Fragment selectedFragment = null;
-
         switch (item.getItemId()) {
             case R.id.nav_home:
                 selectedFragment = new HomeFragment();

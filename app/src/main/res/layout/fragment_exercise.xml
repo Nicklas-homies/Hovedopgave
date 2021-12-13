@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/padding"
+    android:paddingLeft="@dimen/padding"
+    android:paddingRight="@dimen/padding"
     tools:context=".Fragments.ExerciseFragment">
 
     <Button
@@ -22,42 +23,75 @@
         android:id="@+id/new_exercise_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_new_exercise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/min_time_filter" />
 
     <TextView
         android:id="@+id/exercise_head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Exercises"
+        android:text="@string/nav_exercise"
         android:textSize="38sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/edit_text_text_person_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:hint="@string/search"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textSize="@dimen/mediumText"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exercise_head" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edit_text_filter_muscle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+        android:hint="@string/filter_muscle"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textSize="@dimen/mediumText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
-        app:srcCompat="@android:drawable/ic_menu_search" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_text_person_name" />
+
+    <EditText
+        android:id="@+id/min_time_filter"
+
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:hint="@string/min_time"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textSize="@dimen/mediumText"
+        app:layout_constraintEnd_toStartOf="@+id/max_time_filter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_filter_muscle"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.5"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/max_time_filter"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="4dp"
+        android:hint="@string/max_time"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textSize="@dimen/mediumText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_filter_muscle"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.5"
+        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,7 +30,7 @@
     <string name="exercise_time">Time</string>
     <string name="add_exercise">Add Exercise</string>
     <string name="name">Name</string>
-    <string name="search">Search</string>
+    <string name="search">Search for exercise</string>
     <string name="add">Add</string>
 
 
@@ -61,4 +61,7 @@
     <string name="password_length">Password length requires at least 6 characters!</string>
     <string name="registeruser_succes">User has been registered succesfully</string>
     <string name="registeruser_unsucces">User already exist</string>
+    <string name="filter_muscle">Search for muscle and tool</string>
+    <string name="min_time">Min time</string>
+    <string name="max_time">Max time</string>
 </resources>

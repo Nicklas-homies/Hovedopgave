@@ -31,7 +31,7 @@
     <string name="exercise_time">tid</string>
     <string name="add_exercise">Tilføj øvelse</string>
     <string name="name">Navn</string>
-    <string name="search">Søg</string>
+    <string name="search">Søg efter øvelse</string>
     <string name="add">Tilføj</string>
 
     <!-- Login in settings Jonas -->
@@ -61,4 +61,7 @@
     <string name="password_length">Adgangskoden skal være mindst 6 tegn!</string>
     <string name="registeruser_succes">Bruger blev oprettet</string>
     <string name="registeruser_unsucces">Bruger eksisterer allerede</string>
+    <string name="filter_muscle">Søg efter muskel og værktøj</string>
+    <string name="min_time">Min tid</string>
+    <string name="max_time">Max tid</string>
 </resources>
