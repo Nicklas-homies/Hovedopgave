@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Final project</string>
     <string name="username">Username</string>
-    <string name="language">Language</string>
+    <string name="language">Change Language</string>
     <string name="settings">Settings</string>
     <string name="danish">Danish</string>
     <string name="english">English</string>
@@ -19,6 +19,8 @@
     <string name="program_name">Program name</string>
     <string name="save">Save</string>
     <string name="new_program_error">Program name or exercise list can\'t be empty</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_exercise">Exercise</string>
 
     <!-- Written by **Jacob Ravn** jaco8748 -->
     <string name="new_exercise">New exercise</string>
@@ -31,6 +33,35 @@
     <string name="name">Name</string>
     <string name="search">Search for exercise</string>
     <string name="add">Add</string>
+
+
+    <!-- Login in settings -->
+    <string name="email_login">Email Adress</string>
+    <string name="password_login">Password</string>
+    <string name="forgotpassword_login">Forgot Password?</string>
+    <string name="register_login">Register</string>
+    <string name="login_button">Login</string>
+    <string name="history_button">History</string>
+    <string name="friends_button">Friends</string>
+    <string name="loginlogout_button">Login / logout</string>
+    <string name="logout_button">Logout</string>
+    <string name="login_succes">Login was successfully</string>
+    <string name="login_unsucces">Login was unsuccessfully! Please check your credentials</string>
+    <string name="login_verify">Check your email to verify your account</string>
+    <string name="user_logged_in">Logged in as: </string>
+    <string name="user_not_logged_in">Not logged in</string>
+    <string name="reset_button">Reset password</string>
+    <string name="reset_password_succes">Check your email to reset password</string>
+    <string name="reset_password_unsucces">Try again!</string>
+
+    <!-- Register -->
+    <string name="register_button">Register User</string>
+    <string name="email_empty">Email is required!</string>
+    <string name="email_pattern">Please provide valid email!</string>
+    <string name="password_empty">Password is required!</string>
+    <string name="password_length">Password length requires at least 6 characters!</string>
+    <string name="registeruser_succes">User has been registered succesfully</string>
+    <string name="registeruser_unsucces">User already exist</string>
     <string name="filter_muscle">Search for muscle and tool</string>
     <string name="min_time">Min time</string>
     <string name="max_time">Max time</string>
