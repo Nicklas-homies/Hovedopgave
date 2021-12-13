@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".exercises.NewExerciseActivity"
+    android:background="#E7E5DF"
     android:padding="@dimen/padding">
 
     <ImageView
@@ -104,7 +105,7 @@
         android:id="@+id/added_muscle_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxHeight="@dimen/max_height_new_exercise"
+        app:layout_constraintHeight_max="@dimen/max_height_new_exercise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/new_exercise_name" />
@@ -113,7 +114,7 @@
         android:id="@+id/added_tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxHeight="@dimen/max_height_new_exercise"
+        app:layout_constraintHeight_max="@dimen/max_height_new_exercise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/new_exercise_muscle_group" />
