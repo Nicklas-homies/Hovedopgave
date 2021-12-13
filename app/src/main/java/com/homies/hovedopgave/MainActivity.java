@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements Updatable {
 
         if (isLoggedOut) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new ProfileFragment()).commit();
+                    new ProfileFragment(bottomNav)).commit();
         }
 
     }
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements Updatable {
                 break;
 
             case R.id.nav_profile:
-                selectedFragment = new ProfileFragment();
+                selectedFragment = new ProfileFragment(bottomNav);
                 break;
         }
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

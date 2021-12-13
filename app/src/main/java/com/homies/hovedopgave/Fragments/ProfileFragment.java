@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.homies.hovedopgave.Login.LoginActivity;
 import com.homies.hovedopgave.R;
@@ -23,6 +24,19 @@ public class ProfileFragment extends Fragment {
 
     TextView userLoggedIn;
     View view;
+    BottomNavigationView bottomNav;
+
+    public ProfileFragment(BottomNavigationView bottomNav) {
+        this.bottomNav = bottomNav;
+    }
+
+    public ProfileFragment() {
+    }
+
+    public ProfileFragment(int contentLayoutId, BottomNavigationView bottomNav) {
+        super(contentLayoutId);
+        this.bottomNav = bottomNav;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,9 +68,11 @@ public class ProfileFragment extends Fragment {
         myBuilder.setTitle("Choose language").setSingleChoiceItems(listItems, -1, (dialog, which) -> {
             if (which == 0){
                 LanguageHelper.languageHelper().saveLocale("en");
+                bottomNav.getMenu().findItem(R.id.nav_home).setChecked(true);
                 getActivity().recreate();
             }else if (which == 1) {
                 LanguageHelper.languageHelper().saveLocale("da");
+                bottomNav.getMenu().findItem(R.id.nav_home).setChecked(true);
                 getActivity().recreate();
             }
             dialog.dismiss();

@@ -6,4 +6,5 @@
     <dimen name="normalText">18sp</dimen>
     <dimen name="largeText">36sp</dimen>
     <dimen name="max_height_new_exercise">100dp</dimen>
+    <dimen name="app_logo_height">140dp</dimen>
 </resources>
