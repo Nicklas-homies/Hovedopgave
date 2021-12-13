@@ -11,6 +11,7 @@
     <string name="nav_settings">Settings</string>
     <string name="description">Description</string>
     <string name="exercises">Exercises</string>
+    <string name="nav_exercise">Exercise</string>
     <string name="setActive">Set active</string>
     <string name="time">Time</string>
     <string name="minutes">minutes</string>
@@ -18,7 +19,6 @@
     <string name="program_name">Program name</string>
     <string name="save">Save</string>
     <string name="new_program_error">Program name or exercise list can\'t be empty</string>
-    <string name="nav_exercise">Exercise</string>
 
     <!-- Written by **Jacob Ravn** jaco8748 -->
     <string name="new_exercise">New exercise</string>
