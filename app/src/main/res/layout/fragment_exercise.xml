@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/padding"
     android:paddingRight="@dimen/padding"
+    android:background="#E7E5DF"
     tools:context=".Fragments.ExerciseFragment">
 
     <Button
