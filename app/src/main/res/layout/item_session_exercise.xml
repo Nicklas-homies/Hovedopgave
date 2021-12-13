@@ -10,7 +10,7 @@
     android:layout_margin="@dimen/padding" >
 
     <TextView
-        android:id="@+id/list_exercise_name"
+        android:id="@+id/history_item_exercise_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
@@ -19,39 +19,40 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/list_exercise_muscle_group"
+        android:id="@+id/history_item_muscle_group"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="Muscle groups"
         android:textSize="@dimen/normalText"
-        app:layout_constraintEnd_toStartOf="@+id/list_exercise_btn_details"
+        app:layout_constraintEnd_toStartOf="@+id/history_exercise_details_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/list_exercise_btn_details" />
+        app:layout_constraintTop_toTopOf="@+id/history_exercise_details_btn" />
 
     <Button
-        android:id="@+id/list_exercise_btn_details"
+        android:id="@+id/history_exercise_details_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:background="@color/set_active_background"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
         android:text="@string/description"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list_exercise_name" />
+        app:layout_constraintTop_toBottomOf="@+id/history_item_exercise_name" />
 
     <Button
-        android:id="@+id/list_exercise_add_button"
+        android:id="@+id/history_done_exercise_btn"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/set_active_background"
-        android:text="@string/add"
+        android:background="@color/not_finished_yet"
+        android:text="@string/Finish"
         app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/list_exercise_name"
+        app:layout_constraintBottom_toBottomOf="@+id/history_item_exercise_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/list_exercise_btn_details"
-        app:layout_constraintTop_toTopOf="@+id/list_exercise_name" />
+        app:layout_constraintStart_toStartOf="@+id/history_exercise_details_btn"
+        app:layout_constraintTop_toTopOf="@+id/history_item_exercise_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@
     <string name="nav_profile">Profil</string>
     <string name="nav_exercise">Øvelser</string>
 
-    <!-- Written by **Jacob Ravn** jaco8748 -->
+    <!-- Excersises strings -->
     <string name="new_exercise">Ny øvelse</string>
     <string name="exercise_name">Øvelses navn</string>
     <string name="exercise_muscle_group">Muskel grupper</string>
@@ -33,6 +33,10 @@
     <string name="name">Navn</string>
     <string name="search">Søg efter øvelse</string>
     <string name="add">Tilføj</string>
+
+    <!-- history -->
+    <string name="Finish">Færdig</string>
+    <string name="finish_program">Fuldført program</string>
 
     <!-- Login in settings Jonas -->
     <string name="email_login">Email Adresse</string>
