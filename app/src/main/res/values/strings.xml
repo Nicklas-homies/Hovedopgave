@@ -20,6 +20,11 @@
     <string name="new_program_error">Program name or exercise list can\'t be empty</string>
     <string name="nav_profile">Profile</string>
     <string name="nav_exercise">Exercise</string>
+    <string name="active_programs">Active programs</string>
+    <string name="start">Start</string>
+    <string name="added">Added </string>
+    <string name="active_toast_text"> to active programs</string>
+    <string name="stop">Stop</string>
 
     <!-- Written by **Jacob Ravn** jaco8748 -->
     <string name="new_exercise">New exercise</string>

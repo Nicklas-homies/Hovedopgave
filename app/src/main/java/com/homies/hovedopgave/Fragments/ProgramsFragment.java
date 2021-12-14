@@ -17,24 +17,25 @@ import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.Repos.ExerciseRepo;
 import com.homies.hovedopgave.Repos.ProgramRepo;
 import com.homies.hovedopgave.Updatable;
+import com.homies.hovedopgave.interfaces.ExerciseUpdate;
 import com.homies.hovedopgave.models.Exercise;
 import com.homies.hovedopgave.models.Program;
 import com.homies.hovedopgave.programs.NewProgramActivity;
 import com.homies.hovedopgave.utils.ProgramAdapter;
+import com.homies.hovedopgave.utils.ProgramHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 //Creator: Jonathan
-public class ProgramsFragment extends Fragment implements Updatable {
+public class ProgramsFragment extends Fragment implements Updatable, ExerciseUpdate {
 
     List<Program> programs = new ArrayList<>();
     ArrayList<Program> data = new ArrayList<>();
     public List<Program> programsExerciseStringFormat = new ArrayList();
     ArrayList<Exercise> exercises = new ArrayList<>();
-    ProgramAdapter programAdapter = new ProgramAdapter(data);
+    ProgramAdapter programAdapter = new ProgramAdapter(data, false);
 
     RecyclerView rvPrograms;
     Button newProgramButton;
@@ -73,37 +74,14 @@ public class ProgramsFragment extends Fragment implements Updatable {
         ExerciseRepo.r().tempStartListener(this);
     }
 
+    @Override
     public void exerciseUpdate(Object o){
         exercises = (ArrayList<Exercise>) o;
-        HashMap<String, Exercise> exerciseMap = convertExerciseListToMap(exercises);
+        HashMap<String, Exercise> exerciseMap = ProgramHelper.convertExerciseListToMap(exercises);
 
-        programs = generateRealProgramList(programsExerciseStringFormat, exerciseMap);
+        programs = ProgramHelper.generateRealProgramList(programsExerciseStringFormat, exerciseMap);
         data.clear();
         data.addAll(programs);
         programAdapter.notifyDataSetChanged();
-    }
-
-    public ArrayList<Program> generateRealProgramList(List<Program> programList, Map<String, Exercise> exerciseMap){
-        ArrayList<Program> toReturn = new ArrayList<>();
-        List<Exercise> tempExerciseList;
-        for (Program p : programList) {
-            tempExerciseList = new ArrayList<>();
-            for (String s : p.getExerciseListString()) {
-                if (exerciseMap.containsKey(s)){
-                    tempExerciseList.add(exerciseMap.get(s));
-                }
-            }
-            toReturn.add(new Program(p.getId(), p.getProgramName(), tempExerciseList));
-        }
-        System.out.println("toReturn: " + toReturn.toString());
-        return toReturn;
-    }
-
-    public HashMap<String, Exercise> convertExerciseListToMap(ArrayList<Exercise> list){
-        HashMap<String, Exercise> toReturn = new HashMap();
-        for (Exercise exercise : list) {
-            toReturn.put(exercise.getExerciseName(), exercise);
-        }
-        return toReturn;
     }
 }
