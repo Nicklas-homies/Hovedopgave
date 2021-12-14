@@ -42,6 +42,7 @@
     <!-- history -->
     <string name="Finish">Færdig</string>
     <string name="finish_program">Fuldført program</string>
+    <string name="history">Historik</string>
 
     <!-- Login in settings Jonas -->
     <string name="email_login">Email Adresse</string>

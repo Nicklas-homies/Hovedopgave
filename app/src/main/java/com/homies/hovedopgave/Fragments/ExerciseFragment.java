@@ -184,8 +184,6 @@ public class ExerciseFragment extends Fragment implements Updatable {
         else {
             maxTime = Integer.valueOf(maxTimeString);
         }
-        System.out.println(minTime);
-        System.out.println(maxTime);
         List<Exercise> filterData;
         filterData = data.stream()
                 .filter(exercise -> exercise.getExerciseName().toLowerCase().contains(searchKeyword.toString().toLowerCase())

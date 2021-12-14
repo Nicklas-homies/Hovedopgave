@@ -41,7 +41,7 @@
     <!-- history -->
     <string name="Finish">Finish</string>
     <string name="finish_program">completed program</string>
-
+    <string name="history">History</string>
 
     <!-- Login in settings -->
     <string name="email_login">Email Adress</string>

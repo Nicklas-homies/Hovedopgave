@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.UserRepo;
+import com.homies.hovedopgave.history.SessionActivity;
 import com.homies.hovedopgave.models.Exercise;
 import com.homies.hovedopgave.models.Program;
 import com.homies.hovedopgave.programs.ProgramDescriptionActivity;
@@ -82,16 +83,7 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
             }
 
             if (isStart) {
-                if (!programMap.get(program.getId())) {
-                    holder.getSetActiveButton().setBackgroundResource(R.drawable.radius_50);
-                    holder.getSetActiveButton().setText(holder.getStart());
-                    programMap.replace(program.getId(), true);
-                } else {
-                    //start button logic here
-                    holder.getSetActiveButton().setBackgroundColor(v.getContext().getColor(R.color.not_finished_yet));
-                    holder.getSetActiveButton().setText(v.getContext().getString(R.string.stop));
-                    programMap.replace(program.getId(), false);
-                }
+                v.getContext().startActivity(new Intent(v.getContext().getApplicationContext(), SessionActivity.class).putExtra("programId", program.getId()));
             }
         });
 

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.homies.hovedopgave.Fragments.HomeFragment;
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.Repos.ExerciseRepo;
+import com.homies.hovedopgave.Repos.ProgramRepo;
 import com.homies.hovedopgave.Updatable;
 import com.homies.hovedopgave.models.Exercise;
 import com.homies.hovedopgave.models.Program;
@@ -25,15 +26,11 @@ public class SessionActivity extends AppCompatActivity implements Updatable {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        ProgramRepo.pr().getProgramById(getIntent().getStringExtra("programId"), this);
         super.onCreate(savedInstanceState);
         // omega hack løsning, den rigtige løsning ville være at gøre Program parcelable og sende via intent med .putExtra("key", program)
-        program = HomeFragment.activeProgram;
         ExerciseRepo.r().setup(this);
-        ExerciseRepo.r().getExercisesById((ArrayList<String>) program.getExerciseListString());
         setContentView(R.layout.activity_session);
-        ((TextView) findViewById(R.id.history_program_name)).setText(program.getProgramName());
-
         setAdapter();
     }
 
@@ -47,14 +44,19 @@ public class SessionActivity extends AppCompatActivity implements Updatable {
 
     @Override
     public void update(Object o) {
-        System.out.println(o.toString());
+        if (o instanceof Program) {
+            this.program = (Program) o;
+            ExerciseRepo.r().getExercisesById((ArrayList<String>) program.getExerciseListString());
+            ((TextView) findViewById(R.id.history_program_name)).setText(program.getProgramName());
+
+            return;
+        }
         data.clear();
         data.addAll((ArrayList<Exercise>) o);
         adapter.notifyDataSetChanged();
     }
 
     public void finishClicked(View view) {
-        System.out.println("hertl");
         finish();
     }
 }
