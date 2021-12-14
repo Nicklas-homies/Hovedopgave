@@ -4,8 +4,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.homies.hovedopgave.Fragments.ProgramsFragment;
 import com.homies.hovedopgave.Updatable;
+import com.homies.hovedopgave.interfaces.ExerciseUpdate;
 import com.homies.hovedopgave.models.Exercise;
 import com.homies.hovedopgave.programs.ProgramDescriptionActivity;
 
@@ -58,7 +58,7 @@ public class ExerciseRepo {
 
     //Creator: Jonathan
     //Bruges til at få exercises i programsFragment, originalt tænkt var dette ikke en listener derfor ligner den startListener
-    public void tempStartListener(ProgramsFragment pFragment){
+    public void tempStartListener(ExerciseUpdate pFragment){
         db.collection(EXERCISES).addSnapshotListener((values, error) -> {
             exercises.clear();
             if (error == null) {

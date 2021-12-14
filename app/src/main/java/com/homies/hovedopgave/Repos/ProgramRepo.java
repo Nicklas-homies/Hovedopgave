@@ -1,9 +1,8 @@
 package com.homies.hovedopgave.Repos;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.homies.hovedopgave.Updatable;
 import com.homies.hovedopgave.models.Program;
 
@@ -11,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 //Creator: Jonathan
 public class ProgramRepo {
@@ -33,6 +31,11 @@ public class ProgramRepo {
         startListener();
     }
 
+    public void setupNoListener(Updatable activity, List<Program> list){
+        this.activity = activity;
+        this.programs = list;
+    }
+
     public void startListener(){
         db.collection(PROGRAMS).addSnapshotListener((values, error) -> {
           programsExerciseStringFormat.clear();
@@ -48,6 +51,21 @@ public class ProgramRepo {
               }
           }
           activity.update(programsExerciseStringFormat);
+        });
+    }
+
+    public void getProgramsByStringList(List<String> list){
+        List<Program> programs = new ArrayList<>();
+        db.collection(PROGRAMS).get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                for (QueryDocumentSnapshot document : task.getResult()){
+                    if (list.contains(document.getId())) {
+                        Program tempProgram = new Program(document.getId(), (List<String>) document.get("exerciseList"), (String) document.get("programName"));
+                        programs.add(tempProgram);
+                    }
+                }
+            }
+            activity.update(programs);
         });
     }
 

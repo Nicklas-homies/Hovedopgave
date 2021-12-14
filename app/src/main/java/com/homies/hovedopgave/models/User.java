@@ -2,6 +2,7 @@ package com.homies.hovedopgave.models;
 
 import java.util.List;
 
+//Creator: Alle
 public class User {
 
     public String id;

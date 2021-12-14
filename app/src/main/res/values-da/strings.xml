@@ -21,6 +21,11 @@
     <string name="new_program_error">Program navn eller ævelses liste må ikke være tom</string>
     <string name="nav_profile">Profil</string>
     <string name="nav_exercise">Øvelser</string>
+    <string name="active_programs">Aktive programmer</string>
+    <string name="start">Start</string>
+    <string name="added">Tilføjede</string>
+    <string name="active_toast_text">til aktive programmer</string>
+    <string name="stop">Stop</string>
 
     <!-- Excersises strings -->
     <string name="new_exercise">Ny øvelse</string>

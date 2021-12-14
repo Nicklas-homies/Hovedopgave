@@ -13,9 +13,13 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.homies.hovedopgave.Fragments.HomeFragment;
 import com.homies.hovedopgave.Login.LoginActivity;
+import com.homies.hovedopgave.interfaces.UserUpdate;
 import com.homies.hovedopgave.models.User;
 
 import java.util.ArrayList;
@@ -23,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//Creator: Jonathan
 public class UserRepo {
     private static UserRepo userRepo = new UserRepo();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -32,6 +37,7 @@ public class UserRepo {
     private FirebaseAuth mAuth;
     private String email;
     private String uid;
+    private List<String> activePrograms = new ArrayList<>();
 
     public static UserRepo r(){
         return userRepo;
@@ -47,6 +53,12 @@ public class UserRepo {
         activity = a;
         users = list;
         startListener();
+    }
+
+    public void setupNoListener(Updatable a, List<User> list){
+        mAuth = FirebaseAuth.getInstance();
+        activity = a;
+        users = list;
     }
 
     public void startListener(){
@@ -74,8 +86,6 @@ public class UserRepo {
         System.out.println("Inserted " + reference.getId());
     }
 
-
-
     public void createAuth (String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
@@ -98,6 +108,7 @@ public class UserRepo {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user.isEmailVerified()) {
                     this.email = email;
+                    this.uid = user.getUid();
                     activity.update(1);
                 } else {
                     Toast.makeText(context, context.getString(R.string.login_verify), Toast.LENGTH_LONG).show();
@@ -121,11 +132,40 @@ public class UserRepo {
         });
     }
 
+    public void getActiveProgramList(UserUpdate userUpdate, String uid){
+        List<String> tempList = new ArrayList<>();
+        if (uid != null) {
+            db.collection(USERS).document(uid).get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Object o = document.get("activePrograms");
+                        if (o != null) {
+                            tempList.addAll((ArrayList<String>) o);
+                        }
+                    }
+                }
+                this.activePrograms.addAll(tempList);
+                userUpdate.activeProgramUpdate(tempList);
+            });
+        }else {
+            System.out.println("UID was null at getActiveProgramList : UserRepo");
+        }
+    }
+
+    public void addToActiveProgram(String program){
+        db.collection(USERS).document(this.uid).update("activePrograms", FieldValue.arrayUnion(program));
+    }
+
     public String getEmail(Context context) {
         if (this.email == null) {
             return (context.getString(R.string.user_not_logged_in));
         }
         return email;
+    }
+
+    public String getLogicalUid(){
+        return this.uid;
     }
 
     public void setEmail(String email) {
