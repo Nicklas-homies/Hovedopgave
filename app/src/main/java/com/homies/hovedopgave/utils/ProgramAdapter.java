@@ -6,26 +6,38 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.homies.hovedopgave.R;
+import com.homies.hovedopgave.UserRepo;
 import com.homies.hovedopgave.models.Exercise;
 import com.homies.hovedopgave.models.Program;
 import com.homies.hovedopgave.programs.ProgramDescriptionActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //Creator: Jonathan
 public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHolder> {
 
     private List<Program> programList;
+    private boolean isStart = false;
+    private boolean isStop = false;
+    Map<String, Boolean> programMap = new HashMap<>();
 
     public ProgramAdapter(List<Program> programList) {
         this.programList = programList;
+    }
+
+    public ProgramAdapter(List<Program> programList, Boolean isStart) {
+        this.programList = programList;
+        this.isStart = isStart;
     }
 
     @NonNull
@@ -56,6 +68,36 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
             intent.putStringArrayListExtra("exerciseList", tempExercise);
             v.getContext().startActivity(intent);
         });
+
+        holder.getSetActiveButton().setOnClickListener(v -> {
+            if (!isStart) {
+                if (UserRepo.r().getLogicalUid() != null) {
+                    UserRepo.r().addToActiveProgram(program.getId());
+                    Toast.makeText(v.getContext(), v.getContext().getString(R.string.added) + " " + program.getProgramName() + " " + v.getContext().getString(R.string.active_toast_text), Toast.LENGTH_LONG).show();
+                } else {
+                    System.out.println("UID was null at OnBindViewHolder : ProgramAdapter");
+                }
+            }else if (!programMap.containsKey(program.getId())){
+                programMap.put(program.getId(), true);
+            }
+
+            if (isStart) {
+                if (!programMap.get(program.getId())) {
+                    holder.getSetActiveButton().setBackgroundResource(R.drawable.radius_50);
+                    holder.getSetActiveButton().setText(holder.getStart());
+                    programMap.replace(program.getId(), true);
+                } else {
+                    //start button logic here
+                    holder.getSetActiveButton().setBackgroundColor(v.getContext().getColor(R.color.not_finished_yet));
+                    holder.getSetActiveButton().setText(v.getContext().getString(R.string.stop));
+                    programMap.replace(program.getId(), false);
+                }
+            }
+        });
+
+        if (isStart){
+            holder.getSetActiveButton().setText(holder.getStart());
+        }
     }
 
     @Override
@@ -77,6 +119,7 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
         private final ConstraintLayout programLayout;
 
         private String minutes;
+        private String start;
 
         public ViewHolder(@NonNull View programItemView){
             super(programItemView);
@@ -89,6 +132,7 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
             programLayout = (ConstraintLayout) programItemView.findViewById(R.id.programLayout);
 
             minutes = programItemView.getResources().getString(R.string.minutes);
+            start = programItemView.getResources().getString(R.string.start);
         }
 
         public TextView getProgramTitle() {
@@ -113,6 +157,10 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
 
         public String getMinutes() {
             return minutes;
+        }
+
+        public String getStart() {
+            return start;
         }
 
         public Button getSetActiveButton() {
