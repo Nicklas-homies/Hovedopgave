@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.homies.hovedopgave.ExerciseRepo;
+import com.homies.hovedopgave.Repos.ExerciseRepo;
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.Updatable;
 import com.homies.hovedopgave.exercises.ExerciseRecyclerAdapter;
@@ -184,8 +184,6 @@ public class ExerciseFragment extends Fragment implements Updatable {
         else {
             maxTime = Integer.valueOf(maxTimeString);
         }
-        System.out.println(minTime);
-        System.out.println(maxTime);
         List<Exercise> filterData;
         filterData = data.stream()
                 .filter(exercise -> exercise.getExerciseName().toLowerCase().contains(searchKeyword.toString().toLowerCase())

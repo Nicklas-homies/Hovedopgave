@@ -20,8 +20,10 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.homies.hovedopgave.Fragments.HomeFragment;
 import com.homies.hovedopgave.Login.LoginActivity;
 import com.homies.hovedopgave.interfaces.UserUpdate;
+import com.homies.hovedopgave.models.History;
 import com.homies.hovedopgave.models.User;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -162,6 +164,21 @@ public class UserRepo {
             return (context.getString(R.string.user_not_logged_in));
         }
         return email;
+    }
+
+    public void getUserById(String userId, Updatable updatable) {
+        DocumentReference reference = db.collection(USERS).document(userId);
+        reference.get().addOnCompleteListener(task -> {
+           if (task.isSuccessful()) {
+               Map<String, Object> map = task.getResult().getData();
+               User user = new User((String) map.get("email"), (List<String>) map.get("activePrograms"),(List<String>) map.get("friendList"), (List<String>) map.get("history"),(List<String>) map.get("myPrograms"), (List<String>) map.get("myExercises"));
+               updatable.update(user);
+           }
+        });
+    }
+
+    public void addHistoryToUser(String historyId) {
+        db.collection(USERS).document(this.uid).update("history", FieldValue.arrayUnion(historyId));
     }
 
     public String getLogicalUid(){

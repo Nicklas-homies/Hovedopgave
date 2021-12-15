@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.homies.hovedopgave.ExerciseRepo;
+import com.homies.hovedopgave.Repos.ExerciseRepo;
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.models.Exercise;
 import com.homies.hovedopgave.utils.EditTextEnterClicked;
