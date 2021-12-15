@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Written by **Jacob Ravn** jaco8748 -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/program_background_radius50"
+    android:padding="@dimen/padding"
+    android:layout_margin="@dimen/padding"
+    android:id="@+id/history_item_layout"
+    >
+
+
+    <TextView
+        android:id="@+id/history_item_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Date Complated"
+        android:textSize="@dimen/normalText"
+        android:textColor="@color/background_and_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/history_item_program_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="@dimen/mediumText"
+        android:textColor="@color/background_and_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/history_item_date" />
+</androidx.constraintlayout.widget.ConstraintLayout>

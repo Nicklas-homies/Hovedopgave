@@ -20,6 +20,15 @@ public class User {
         this.email = email;
     }
 
+    public User(String email, List<String> activePrograms, List<String> friendList, List<String> history, List<String> myPrograms, List<String> myExercises) {
+        this.email = email;
+        this.activePrograms = activePrograms;
+        this.friendList = friendList;
+        this.history = history;
+        this.myPrograms = myPrograms;
+        this.myExercises = myExercises;
+    }
+
     public String getId() {
         return id;
     }

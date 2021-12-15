@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.UserRepo;
+import com.homies.hovedopgave.history.SessionActivity;
 import com.homies.hovedopgave.models.Exercise;
 import com.homies.hovedopgave.models.Program;
 import com.homies.hovedopgave.programs.ProgramDescriptionActivity;
@@ -64,10 +65,10 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
         holder.getMuscleGroupList().setText(program.getMuscleGroup().toString());
 
         holder.getProgramLayout().setOnClickListener(v -> {
+
             if (UserRepo.r().getLogicalUid() != null) {
                 Intent intent = new Intent(v.getContext(), ProgramDescriptionActivity.class);
                 intent.putExtra("programId", program.getId());
-                intent.putStringArrayListExtra("exerciseList", tempExercise);
                 v.getContext().startActivity(intent);
             }else {
                 Toast.makeText(v.getContext(), v.getContext().getString(R.string.logged_in_program), Toast.LENGTH_LONG).show();
@@ -87,16 +88,7 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
             }
 
             if (isStart) {
-                if (!programMap.get(program.getId())) {
-                    holder.getSetActiveButton().setBackgroundResource(R.drawable.radius_50);
-                    holder.getSetActiveButton().setText(holder.getStart());
-                    programMap.replace(program.getId(), true);
-                } else {
-                    //start button logic here
-                    holder.getSetActiveButton().setBackgroundColor(v.getContext().getColor(R.color.not_finished_yet));
-                    holder.getSetActiveButton().setText(v.getContext().getString(R.string.stop));
-                    programMap.replace(program.getId(), false);
-                }
+                v.getContext().startActivity(new Intent(v.getContext().getApplicationContext(), SessionActivity.class).putExtra("programId", program.getId()));
             }
         });
 

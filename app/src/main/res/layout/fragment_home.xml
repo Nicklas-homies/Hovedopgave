@@ -7,7 +7,7 @@
     android:background="@color/background_and_text">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/fragment_history_headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/active_programs"
@@ -40,7 +40,7 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/fragment_history_headline">
 
         <TextView
             android:id="@+id/no_active_programs"
@@ -65,4 +65,7 @@
             app:layout_constraintStart_toStartOf="@+id/no_active_programs"
             app:layout_constraintTop_toBottomOf="@+id/no_active_programs" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@+id/fragment_history_headline" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

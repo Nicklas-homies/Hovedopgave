@@ -28,6 +28,11 @@ public class ExerciseRepo {
         startListener();
     }
 
+    // used when getting by id instead of everything.
+    public void setup(Updatable a) {
+        activity = a;
+    }
+
     public void startListener(){
         db.collection(EXERCISES).addSnapshotListener((values, error) -> {
             exercises.clear();
@@ -69,6 +74,27 @@ public class ExerciseRepo {
                 }
             }
             pFragment.exerciseUpdate(exercises);
+        });
+    }
+
+    //Creator: Jonathan
+    //Bruges til at hente exercises ud fra en liste med id, som bruges i sammenhæng med at hente fra programs
+    public void getExercisesById(ArrayList<String> idList){
+        db.collection(EXERCISES).get().addOnCompleteListener(task -> {
+            ArrayList<Exercise> exList = new ArrayList<>();
+            if (task.isSuccessful()){
+                for (QueryDocumentSnapshot qs : task.getResult()) {
+                    Map<String, Object> mapExercise = qs.getData();
+                    if (idList.contains(qs.getId())){
+                        ArrayList<String> muscleGroup = new ArrayList<>();
+                        muscleGroup.addAll((ArrayList<String>) mapExercise.get("muscleGroup"));
+                        ArrayList<String> tools = new ArrayList<>();
+                        tools.addAll((ArrayList<String>) mapExercise.get("tools"));
+                        exList.add(new Exercise(qs.getId(), muscleGroup, tools, (String) mapExercise.get("description"), Integer.valueOf((String) mapExercise.get("time"))));
+                    }
+                }
+            }
+            activity.update(exList);
         });
     }
 

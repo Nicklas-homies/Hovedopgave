@@ -36,7 +36,7 @@
     <string name="no_active_programs">No active programs</string>
     <string name="visit_programs">Visit the programs tab to start your workout</string>
 
-    <!-- Written by **Jacob Ravn** jaco8748 -->
+    <!-- Excersises strings -->
     <string name="new_exercise">New exercise</string>
     <string name="exercise_name">Exercise name</string>
     <string name="exercise_muscle_group">Muscle groups</string>
@@ -48,6 +48,11 @@
     <string name="search">Search for exercise</string>
     <string name="add">Add</string>
 
+    <!-- history -->
+    <string name="Finish">Finish</string>
+    <string name="finish_program">completed program</string>
+    <string name="history">History</string>
+    <string name="completed_on">Completed on: </string>
 
     <!-- Login in settings -->
     <string name="email_login">Email Adress</string>

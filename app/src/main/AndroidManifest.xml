@@ -13,6 +13,9 @@
             android:name=".programs.EditProgramActivity"
             android:exported="true" />
         <activity
+            android:name=".history.SessionActivity"
+            android:exported="false" />
+        <activity
             android:name=".programs.NewProgramActivity"
             android:exported="true" />
         <activity
