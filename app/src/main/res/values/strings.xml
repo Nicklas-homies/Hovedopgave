@@ -42,6 +42,7 @@
     <string name="Finish">Finish</string>
     <string name="finish_program">completed program</string>
     <string name="history">History</string>
+    <string name="completed_on">Completed on: </string>
 
     <!-- Login in settings -->
     <string name="email_login">Email Adress</string>

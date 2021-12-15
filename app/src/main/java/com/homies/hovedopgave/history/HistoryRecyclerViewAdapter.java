@@ -41,7 +41,7 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryRecy
         History history = histories.get(position);
 
         holder.programName.setText(history.getProgramName());
-        holder.dateCompleted.setText("Completed on: " + history.getCompletedDate().toString());
+        holder.dateCompleted.setText(R.string.completed_on + history.getCompletedDate().toString());
 
         holder.layout.setOnClickListener(view -> {
             Intent intent = new Intent(view.getContext(), ProgramDescriptionActivity.class);
