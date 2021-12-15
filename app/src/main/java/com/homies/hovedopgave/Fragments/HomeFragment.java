@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -40,11 +41,14 @@ public class HomeFragment extends Fragment implements Updatable, ExerciseUpdate,
     List<User> userList = new ArrayList<>();
 
     RecyclerView rvActivePrograms;
+    ConstraintLayout noProgramLayout;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
+
+        noProgramLayout = view.findViewById(R.id.no_active_layout);
 
         setProgramAdapter(view);
 
@@ -87,12 +91,25 @@ public class HomeFragment extends Fragment implements Updatable, ExerciseUpdate,
         data.clear();
         data.addAll(programs);
         programAdapter.notifyDataSetChanged();
+
+        if (data.size() == 0){
+            noProgramLayout.setVisibility(View.VISIBLE);
+            rvActivePrograms.setVisibility(View.GONE);
+        }else{
+            noProgramLayout.setVisibility(View.GONE);
+            rvActivePrograms.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
     public void activeProgramUpdate(Object o) {
         if (UserRepo.r().getLogicalUid() != null){
+            noProgramLayout.setVisibility(View.GONE);
+            rvActivePrograms.setVisibility(View.VISIBLE);
             ProgramRepo.pr().getProgramsByStringList((ArrayList<String>) o);
+        }else {
+            noProgramLayout.setVisibility(View.VISIBLE);
+            rvActivePrograms.setVisibility(View.GONE);
         }
     }
 }

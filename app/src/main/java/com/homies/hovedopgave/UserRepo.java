@@ -159,6 +159,34 @@ public class UserRepo {
         db.collection(USERS).document(this.uid).update("activePrograms", FieldValue.arrayUnion(program));
     }
 
+    public void addToMyPrograms(String programId){
+        db.collection(USERS).document(this.uid).update("myPrograms", FieldValue.arrayUnion(programId));
+    }
+
+    public void checkProgramOwnerById(String programId){
+        List<String> tempList = new ArrayList<>();
+        db.collection(USERS).document(this.uid).get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                DocumentSnapshot document = task.getResult();
+                if (document.exists()){
+                    Object o = document.get("myPrograms");
+                    if (o != null){
+                        tempList.addAll((ArrayList<String>) o);
+                        if (tempList.contains(programId)){
+                            activity.update(true);
+                        }
+                    }
+                }
+            }
+            activity.update(false);
+        });
+    }
+
+    public void deleteProgramFromUser(String id) {
+        db.collection(USERS).document(this.uid).update("myPrograms", FieldValue.arrayRemove(id));
+        db.collection(USERS).document(this.uid).update("activePrograms", FieldValue.arrayRemove(id));
+    }
+
     public String getEmail(Context context) {
         if (this.email == null) {
             return (context.getString(R.string.user_not_logged_in));
@@ -187,5 +215,9 @@ public class UserRepo {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

@@ -33,8 +33,6 @@ public class ExerciseRepo {
         activity = a;
     }
 
-
-
     public void startListener(){
         db.collection(EXERCISES).addSnapshotListener((values, error) -> {
             exercises.clear();
@@ -102,7 +100,7 @@ public class ExerciseRepo {
 
     //Creator: Jonathan
     //Bruges til at hente exercises ud fra en liste med id, som bruges i sammenhæng med at hente fra programs
-    public void getExercisesById(ArrayList<String> idList, ProgramDescriptionActivity descActivity){
+    public void getExercisesById(ArrayList<String> idList, ExerciseUpdate updateActivity){
         db.collection(EXERCISES).get().addOnCompleteListener(task -> {
             ArrayList<Exercise> exList = new ArrayList<>();
             if (task.isSuccessful()){
@@ -117,7 +115,7 @@ public class ExerciseRepo {
                     }
                 }
             }
-            descActivity.exerciseUpdate(exList);
+            updateActivity.exerciseUpdate(exList);
         });
     }
 
@@ -131,5 +129,9 @@ public class ExerciseRepo {
         map.put("time", String.valueOf(exercise.getTime()));
         reference.set(map); // replaces previous values
         System.out.println("Inserted " + reference.getId());
+    }
+
+    public ArrayList<Exercise> getExercises() {
+        return exercises;
     }
 }

@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements Updatable {
     public void onClickLogout (View view) {
         FirebaseAuth.getInstance().signOut();
         UserRepo.r().setEmail(null);
+        UserRepo.r().setUid(null);
         recreate();
         isLoggedOut = true;
     }

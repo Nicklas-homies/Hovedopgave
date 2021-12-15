@@ -12,7 +12,10 @@ public class Exercise {
     private String description;
     private int time; // in minutes
 
-    public Exercise(String exerciseName, List<String> muscleGroup, List<String> tools,String description, int time) {
+    public Exercise() {
+    }
+
+    public Exercise(String exerciseName, List<String> muscleGroup, List<String> tools, String description, int time) {
         this.exerciseName = exerciseName;
         this.muscleGroup = muscleGroup;
         this.description = description;

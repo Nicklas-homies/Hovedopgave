@@ -10,11 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.Repos.ExerciseRepo;
 import com.homies.hovedopgave.Repos.ProgramRepo;
 import com.homies.hovedopgave.Updatable;
+import com.homies.hovedopgave.UserRepo;
 import com.homies.hovedopgave.exercises.ExerciseRecyclerAdapter;
 import com.homies.hovedopgave.interfaces.NewProgramInterface;
 import com.homies.hovedopgave.models.Exercise;
@@ -73,7 +75,7 @@ public class NewProgramActivity extends AppCompatActivity implements Updatable, 
         if (!tempName.equals("") && newData.size() > 0) {
             ProgramRepo.pr().saveProgram(new Program(newData, tempName));
             finish();
-        }else {
+        } else {
             programName.setError(getString(R.string.new_program_error));
             programName.requestFocus();
         }

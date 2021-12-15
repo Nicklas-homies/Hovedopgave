@@ -12,11 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.Repos.ExerciseRepo;
 import com.homies.hovedopgave.Repos.ProgramRepo;
 import com.homies.hovedopgave.Updatable;
+import com.homies.hovedopgave.UserRepo;
 import com.homies.hovedopgave.interfaces.ExerciseUpdate;
 import com.homies.hovedopgave.models.Exercise;
 import com.homies.hovedopgave.models.Program;
@@ -45,7 +47,13 @@ public class ProgramsFragment extends Fragment implements Updatable, ExerciseUpd
         View view = inflater.inflate(R.layout.fragment_programs, container, false);
 
         newProgramButton = view.findViewById(R.id.new_program_button);
-        newProgramButton.setOnClickListener(v -> startActivity(new Intent(v.getContext(), NewProgramActivity.class)));
+        newProgramButton.setOnClickListener(v -> {
+            if (UserRepo.r().getLogicalUid() != null) {
+                startActivity(new Intent(v.getContext(), NewProgramActivity.class));
+            }else{
+                Toast.makeText(view.getContext(), view.getContext().getString(R.string.logged_in_program), Toast.LENGTH_LONG).show();
+            }
+        });
 
         setProgramAdapter(view);
 
@@ -55,8 +63,14 @@ public class ProgramsFragment extends Fragment implements Updatable, ExerciseUpd
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        ProgramRepo.pr().setup(this, programs);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        System.out.println("We hit resume");
         ProgramRepo.pr().setup(this, programs);
-        ProgramRepo.pr().startListener();
     }
 
     private void setProgramAdapter(View view){
@@ -70,16 +84,21 @@ public class ProgramsFragment extends Fragment implements Updatable, ExerciseUpd
 
     @Override
     public void update(Object o) {
+        System.out.println("pFrag update");
         programsExerciseStringFormat = (ArrayList<Program>) o;
         ExerciseRepo.r().tempStartListener(this);
     }
 
     @Override
     public void exerciseUpdate(Object o){
+        System.out.println("pFrag exUpdate");
         exercises = (ArrayList<Exercise>) o;
         HashMap<String, Exercise> exerciseMap = ProgramHelper.convertExerciseListToMap(exercises);
 
         programs = ProgramHelper.generateRealProgramList(programsExerciseStringFormat, exerciseMap);
+        for (Program p : programs) {
+            System.out.println(p.getProgramName());
+        }
         data.clear();
         data.addAll(programs);
         programAdapter.notifyDataSetChanged();

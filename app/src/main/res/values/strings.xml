@@ -25,6 +25,16 @@
     <string name="added">Added </string>
     <string name="active_toast_text"> to active programs</string>
     <string name="stop">Stop</string>
+    <string name="logged_in_program">You need to be logged in to access programs</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="are_you_sure">Are you sure you want to delete</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="saved_changes">Saved changes</string>
+    <string name="deleted">Deleted</string>
+    <string name="no_active_programs">No active programs</string>
+    <string name="visit_programs">Visit the programs tab to start your workout</string>
 
     <!-- Excersises strings -->
     <string name="new_exercise">New exercise</string>
@@ -54,7 +64,7 @@
     <string name="friends_button">Friends</string>
     <string name="loginlogout_button">Login / logout</string>
     <string name="logout_button">Logout</string>
-    <string name="login_succes">Login was successfully</string>
+    <string name="login_succes">Login was successful</string>
     <string name="login_unsucces">Login was unsuccessfully! Please check your credentials</string>
     <string name="login_verify">Check your email to verify your account</string>
     <string name="user_logged_in">Logged in as: </string>
