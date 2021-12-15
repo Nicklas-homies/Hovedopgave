@@ -8,10 +8,12 @@
 
     <!-- Login / Logout button constrain -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayoutLoginLogout"
-        android:layout_width="348dp"
+        android:id="@+id/constraintLayoutLogin"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/radius_button_20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
@@ -25,7 +27,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:background="@color/normal_button_background"
-            android:text="@string/loginlogout_button"
+            android:text="@string/login_button"
             android:textColor="@color/background_and_text"
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -41,11 +43,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/radius_button_20"
-        app:layout_constraintEnd_toEndOf="@+id/constraintLayoutLoginLogout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayoutLoginLogout"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutLoginLogout">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutLogin">
 
         <Button
             android:id="@+id/historyButton"
@@ -119,59 +123,68 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Logout button constrain -->
+    
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayoutLogout"
+        android:id="@+id/constrainLayoutLogoutRemove"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/radius_button_20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/constraintLayoutLanguage"
-        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="@+id/constraintLayoutLanguage">
-
-        <Button
-            android:id="@+id/logoutButton"
+        <!-- Logout button constrain -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutLogout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/normal_button_background"
-            android:onClick="onClickLogout"
-            android:text="@string/logout_button"
-            android:textColor="@color/background_and_text"
-            android:textSize="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/radius_button_20"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent">
+    
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/normal_button_background"
+                android:onClick="onClickLogout"
+                android:text="@string/logout_button"
+                android:textColor="@color/background_and_text"
+                android:textSize="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    
+        <TextView
+            android:id="@+id/userLoggedInTittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/user_logged_in"
+            android:textColor="@color/normal_button_background"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/userLoggedIn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    
+        <TextView
+            android:id="@+id/userLoggedIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="@string/user_not_logged_in"
+            android:textColor="@color/normal_button_background"
+            android:textColorHint="@color/normal_button_background"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayoutLogout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/userLoggedInTittle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="@string/user_logged_in"
-        android:textColor="@color/normal_button_background"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/userLoggedIn"
-        app:layout_constraintEnd_toEndOf="@+id/constraintLayoutLanguage"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayoutLanguage" />
-
-    <TextView
-        android:id="@+id/userLoggedIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:hint="@string/user_not_logged_in"
-        android:textColor="@color/normal_button_background"
-        android:textColorHint="@color/normal_button_background"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayoutLogout"
-        app:layout_constraintEnd_toEndOf="@+id/constraintLayoutLanguage"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayoutLanguage" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

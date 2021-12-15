@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,6 +26,7 @@ public class ProfileFragment extends Fragment {
     TextView userLoggedIn;
     View view;
     BottomNavigationView bottomNav;
+    ConstraintLayout constrainLayoutLogoutRemove, constraintLayoutLogin;
 
     public ProfileFragment(BottomNavigationView bottomNav) {
         this.bottomNav = bottomNav;
@@ -53,6 +55,15 @@ public class ProfileFragment extends Fragment {
         userLoggedIn = (TextView) view.findViewById(R.id.userLoggedIn);
         userLoggedIn.setText(UserRepo.r().getEmail(getContext()));
         super.onResume();
+        constrainLayoutLogoutRemove = (ConstraintLayout) view.findViewById(R.id.constrainLayoutLogoutRemove);
+        constraintLayoutLogin = (ConstraintLayout) view.findViewById(R.id.constraintLayoutLogin);
+        if (UserRepo.r().getLogicalUid() != null) {
+            constrainLayoutLogoutRemove.setVisibility(View.VISIBLE);
+            constraintLayoutLogin.setVisibility(View.GONE);
+        } else {
+            constraintLayoutLogin.setVisibility(View.VISIBLE);
+            constrainLayoutLogoutRemove.setVisibility(View.GONE);
+        }
     }
 
 
