@@ -39,8 +39,6 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryRecy
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         History history = histories.get(position);
-        System.out.println("history");
-        System.out.println(history);
 
         holder.programName.setText(history.getProgramName());
         holder.dateCompleted.setText("Completed on: " + history.getCompletedDate().toString());

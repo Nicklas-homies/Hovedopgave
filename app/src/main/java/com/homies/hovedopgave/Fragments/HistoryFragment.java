@@ -36,11 +36,17 @@ public class HistoryFragment extends Fragment implements Updatable {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
-//        Get the user history id list.
-//        Get the history to display
-//        Finish recycler view if anything missing.
-        UserRepo.r().getUserById(FirebaseAuth.getInstance().getCurrentUser().getUid(), this);
-        setAdapter(view);
+        System.out.println("hertil");
+        System.out.println("hertil");
+        System.out.println("hertil");
+        System.out.println("hertil");
+        System.out.println("hertil");
+        System.out.println(FirebaseAuth.getInstance().getCurrentUser());
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            UserRepo.r().getUserById(FirebaseAuth.getInstance().getCurrentUser().getUid(), this);
+            view.findViewById(R.id.fragment_history_not_login).setVisibility(View.GONE);
+            setAdapter(view);
+        }
         return view;
     }
 
