@@ -22,6 +22,7 @@ import com.homies.hovedopgave.models.Program;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/* Written by **Jacob Ravn** jaco8748 */
 public class SessionActivity extends AppCompatActivity implements Updatable {
     Program program;
     ArrayList<Exercise> data = new ArrayList<>();

@@ -24,6 +24,7 @@ import com.homies.hovedopgave.models.User;
 
 import java.util.ArrayList;
 
+/* Written by **Jacob Ravn** jaco8748 */
 public class HistoryFragment extends Fragment implements Updatable {
     ArrayList<History> userHistory = new ArrayList<>();
     ArrayList<History> data = new ArrayList<>();

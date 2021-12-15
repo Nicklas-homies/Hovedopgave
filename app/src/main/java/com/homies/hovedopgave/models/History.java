@@ -2,6 +2,7 @@ package com.homies.hovedopgave.models;
 
 import java.time.LocalDate;
 
+/* Written by **Jacob Ravn** jaco8748 */
 public class History {
     String id;
     String programId;
