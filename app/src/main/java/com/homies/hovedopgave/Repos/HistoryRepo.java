@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/* Written by **Jacob Ravn** jaco8748 */
 public class HistoryRepo {
     private static HistoryRepo repo = new HistoryRepo();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
