@@ -36,12 +36,7 @@ public class HistoryFragment extends Fragment implements Updatable {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
-        System.out.println("hertil");
-        System.out.println("hertil");
-        System.out.println("hertil");
-        System.out.println("hertil");
-        System.out.println("hertil");
-        System.out.println(FirebaseAuth.getInstance().getCurrentUser());
+
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             UserRepo.r().getUserById(FirebaseAuth.getInstance().getCurrentUser().getUid(), this);
             view.findViewById(R.id.fragment_history_not_login).setVisibility(View.GONE);
