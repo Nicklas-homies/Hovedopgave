@@ -8,19 +8,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.homies.hovedopgave.Fragments.HomeFragment;
+import com.google.firebase.auth.FirebaseAuth;
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.Repos.ExerciseRepo;
+import com.homies.hovedopgave.Repos.HistoryRepo;
 import com.homies.hovedopgave.Repos.ProgramRepo;
 import com.homies.hovedopgave.Updatable;
+import com.homies.hovedopgave.UserRepo;
 import com.homies.hovedopgave.models.Exercise;
+import com.homies.hovedopgave.models.History;
 import com.homies.hovedopgave.models.Program;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class SessionActivity extends AppCompatActivity implements Updatable {
     Program program;
-    ArrayList<Exercise> exercises = new ArrayList<>();
     ArrayList<Exercise> data = new ArrayList<>();
     SessionRecyclerViewAdapter adapter;
 
@@ -28,7 +31,6 @@ public class SessionActivity extends AppCompatActivity implements Updatable {
     protected void onCreate(Bundle savedInstanceState) {
         ProgramRepo.pr().getProgramById(getIntent().getStringExtra("programId"), this);
         super.onCreate(savedInstanceState);
-        // omega hack løsning, den rigtige løsning ville være at gøre Program parcelable og sende via intent med .putExtra("key", program)
         ExerciseRepo.r().setup(this);
         setContentView(R.layout.activity_session);
         setAdapter();
@@ -51,12 +53,18 @@ public class SessionActivity extends AppCompatActivity implements Updatable {
 
             return;
         }
+        else if (o instanceof String) {
+            UserRepo.r().addHistoryToUser((String) o);
+            finish();
+
+            return;
+        }
         data.clear();
         data.addAll((ArrayList<Exercise>) o);
         adapter.notifyDataSetChanged();
     }
 
     public void finishClicked(View view) {
-        finish();
+        HistoryRepo.r().addHistory(new History(program.getId(), program.getProgramName(), LocalDate.now(), FirebaseAuth.getInstance().getCurrentUser().getUid()), this);
     }
 }

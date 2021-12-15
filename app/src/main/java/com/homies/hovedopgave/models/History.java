@@ -5,18 +5,23 @@ import java.time.LocalDate;
 public class History {
     String id;
     String programId;
+    String programName;
     LocalDate completedDate;
     String userId;
 
-    public History(String programId, LocalDate completedDate) {
+    public History(String programId, String programName, LocalDate completedDate, String userId) {
         this.programId = programId;
+        this.programName = programName;
         this.completedDate = completedDate;
+        this.userId = userId;
     }
 
-    public History(String id, String programId, LocalDate completedDate) {
+    public History(String id, String programId, String programName, LocalDate completedDate, String userId) {
         this.id = id;
         this.programId = programId;
+        this.programName = programName;
         this.completedDate = completedDate;
+        this.userId = userId;
     }
 
     public String getId() {
@@ -33,5 +38,28 @@ public class History {
 
     public void setProgramId(String programId) {
         this.programId = programId;
+    }
+
+    public LocalDate getCompletedDate() {
+        return completedDate;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getProgramName() {
+        return programName;
+    }
+
+    @Override
+    public String toString() {
+        return "History{" +
+                "id='" + id + '\'' +
+                ", programId='" + programId + '\'' +
+                ", programName='" + programName + '\'' +
+                ", completedDate=" + completedDate +
+                ", userId='" + userId + '\'' +
+                '}';
     }
 }

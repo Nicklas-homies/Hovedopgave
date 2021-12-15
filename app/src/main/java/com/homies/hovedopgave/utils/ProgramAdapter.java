@@ -66,7 +66,6 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
         holder.getProgramLayout().setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), ProgramDescriptionActivity.class);
             intent.putExtra("programId", program.getId());
-            intent.putStringArrayListExtra("exerciseList", tempExercise);
             v.getContext().startActivity(intent);
         });
 

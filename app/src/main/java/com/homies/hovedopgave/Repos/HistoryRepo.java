@@ -4,6 +4,8 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.homies.hovedopgave.Updatable;
@@ -11,11 +13,13 @@ import com.homies.hovedopgave.models.History;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HistoryRepo {
     private static HistoryRepo repo = new HistoryRepo();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private final String HISTORY = "HISTORY";
+    private final String HISTORY = "history";
     public ArrayList<History> histories = new ArrayList<>();
     private Updatable activity;
 
@@ -36,6 +40,7 @@ public class HistoryRepo {
             return;
         }
         db.collection(HISTORY).addSnapshotListener(((value, error) -> {
+            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
             if (error == null) {
                 for (DocumentSnapshot snapshot : value.getDocuments()) {
                     String id = snapshot.getId();
@@ -44,15 +49,30 @@ public class HistoryRepo {
                         if (!userHistoryIdList.contains(id)) {
                             continue;
                         }
-                        String date = (String) snapshot.get("date");
+                        String date = (String) snapshot.get("completedDate");
                         LocalDate localDate = LocalDate.parse(date);
-                        histories.add(new History(id, (String) snapshot.get("programId"), localDate));
+                        histories.add(new History(id, (String) snapshot.get("programId"), (String) snapshot.get("programName"), localDate, userId));
                     }
                 }
                 // success
                 activity.update(1);
             }
         }));
+    }
+
+    public void addHistory(History history, Updatable updateWithHistoryId) {
+        Map<String, String> map = new HashMap<>();
+        map.put("programId", history.getProgramId());
+        map.put("completedDate", history.getCompletedDate().toString());
+        map.put("userId", history.getUserId());
+        map.put("programName", history.getProgramName());
+
+        db.collection(HISTORY).add(map).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                updateWithHistoryId.update(task.getResult().getId());
+            }
+        });
+
     }
 
 }
