@@ -18,7 +18,7 @@
     <string name="new_program">Nyt program</string>
     <string name="program_name">Program navn</string>
     <string name="save">Gem</string>
-    <string name="new_program_error">Program navn eller ævelses liste må ikke være tom</string>
+    <string name="new_program_error">Program navn eller øvelses liste må ikke være tom</string>
     <string name="nav_profile">Profil</string>
     <string name="nav_exercise">Øvelser</string>
     <string name="active_programs">Aktive programmer</string>
@@ -26,6 +26,16 @@
     <string name="added">Tilføjede</string>
     <string name="active_toast_text">til aktive programmer</string>
     <string name="stop">Stop</string>
+    <string name="logged_in_program">Du skal være logget ind for at tilgå programmer</string>
+    <string name="edit">Rediger</string>
+    <string name="delete">Slet</string>
+    <string name="are_you_sure">Er du sikker på du vil slette</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nej</string>
+    <string name="saved_changes">Ændringer gemt</string>
+    <string name="deleted">Slettede</string>
+    <string name="no_active_programs">Ingen aktive programmer</string>
+    <string name="visit_programs">Besøg program tabben for at starte din træning</string>
 
     <!-- Written by **Jacob Ravn** jaco8748 -->
     <string name="new_exercise">Ny øvelse</string>

@@ -4,6 +4,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.homies.hovedopgave.Updatable;
+import com.homies.hovedopgave.UserRepo;
 import com.homies.hovedopgave.models.Program;
 
 import java.util.ArrayList;
@@ -74,7 +75,18 @@ public class ProgramRepo {
         programToAdd.put("programName", program.getProgramName());
         programToAdd.put("exerciseList", program.getExerciseListString());
 
-        db.collection(PROGRAMS).add(programToAdd);
+        db.collection(PROGRAMS).add(programToAdd).addOnSuccessListener(documentReference -> UserRepo.r().addToMyPrograms(documentReference.getId()));
+    }
+
+    public void updateProgram(Program program){
+        Map<String, Object> newData = new HashMap<>();
+        newData.put("programName", program.getProgramName());
+        newData.put("exerciseList", program.getExerciseListString());
+        db.collection(PROGRAMS).document(program.getId()).update(newData);
+    }
+
+    public void deleteProgram(Program program){
+        db.collection(PROGRAMS).document(program.getId()).delete().addOnCompleteListener(task -> UserRepo.r().deleteProgramFromUser(program.getId()));
     }
 
     public void getProgramById(String id, Updatable updatable){

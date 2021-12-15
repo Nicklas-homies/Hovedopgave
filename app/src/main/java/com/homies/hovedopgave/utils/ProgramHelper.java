@@ -32,7 +32,6 @@ public class ProgramHelper {
             }
             toReturn.add(new Program(p.getId(), p.getProgramName(), tempExerciseList));
         }
-        System.out.println("toReturn: " + toReturn.toString());
         return toReturn;
     }
 }

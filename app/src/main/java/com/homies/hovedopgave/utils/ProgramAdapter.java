@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.UserRepo;
 import com.homies.hovedopgave.models.Exercise;
@@ -63,10 +64,14 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
         holder.getMuscleGroupList().setText(program.getMuscleGroup().toString());
 
         holder.getProgramLayout().setOnClickListener(v -> {
-            Intent intent = new Intent(v.getContext(), ProgramDescriptionActivity.class);
-            intent.putExtra("programId", program.getId());
-            intent.putStringArrayListExtra("exerciseList", tempExercise);
-            v.getContext().startActivity(intent);
+            if (UserRepo.r().getLogicalUid() != null) {
+                Intent intent = new Intent(v.getContext(), ProgramDescriptionActivity.class);
+                intent.putExtra("programId", program.getId());
+                intent.putStringArrayListExtra("exerciseList", tempExercise);
+                v.getContext().startActivity(intent);
+            }else {
+                Toast.makeText(v.getContext(), v.getContext().getString(R.string.logged_in_program), Toast.LENGTH_LONG).show();
+            }
         });
 
         holder.getSetActiveButton().setOnClickListener(v -> {
