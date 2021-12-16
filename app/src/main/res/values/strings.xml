@@ -35,6 +35,10 @@
     <string name="deleted">Deleted</string>
     <string name="no_active_programs">No active programs</string>
     <string name="visit_programs">Visit the programs tab to start your workout</string>
+    <string name="friend_not_logged_in">You need to be logged in to access friends</string>
+    <string name="friend_title">Friends</string>
+    <string name="friend_no_active_programs"> User has no active programs</string>
+    <string name="friend_no_history">User has no history</string>
 
     <!-- Excersises strings -->
     <string name="new_exercise">New exercise</string>

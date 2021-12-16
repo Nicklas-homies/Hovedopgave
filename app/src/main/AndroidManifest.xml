@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hovedopgave">
         <activity
+            android:name=".friends.FriendHistoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".friends.FriendActivity"
+            android:exported="true" />
+        <activity
             android:name=".programs.EditProgramActivity"
             android:exported="true" />
         <activity

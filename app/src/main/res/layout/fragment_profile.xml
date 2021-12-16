@@ -6,158 +6,87 @@
     android:layout_height="match_parent"
     android:background="@color/background_and_text">
 
-    <!-- Login / Logout button constrain -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayoutLogin"
+    <Button
+        android:id="@+id/loginLogoutButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/radius_button_20"
+        android:text="@string/login_button"
+        android:textColor="@color/background_and_text"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/historyButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/radius_button_20"
+        android:text="@string/history_button"
+        android:textColor="@color/background_and_text"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/loginLogoutButton" />
 
-        <Button
-            android:id="@+id/loginLogoutButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/normal_button_background"
-            android:text="@string/login_button"
-            android:textColor="@color/background_and_text"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!-- History button constrain -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayoutHistory"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/radius_button_20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutLogin">
-
-        <Button
-            android:id="@+id/historyButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/normal_button_background"
-            android:text="@string/history_button"
-            android:textColor="@color/background_and_text"
-            android:textSize="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <!-- Friends button constrain -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayoutFriends"
+    <Button
+        android:id="@+id/friendsButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/radius_button_20"
-        app:layout_constraintEnd_toEndOf="@id/constraintLayoutHistory"
-        app:layout_constraintStart_toStartOf="@id/constraintLayoutHistory"
-        app:layout_constraintTop_toBottomOf="@id/constraintLayoutHistory">
+        android:gravity="center"
+        android:text="@string/friends_button"
+        android:textColor="@color/background_and_text"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@id/historyButton"
+        app:layout_constraintStart_toStartOf="@id/historyButton"
+        app:layout_constraintTop_toBottomOf="@id/historyButton" />
 
-        <Button
-            android:id="@+id/friendsButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/normal_button_background"
-            android:text="@string/friends_button"
-            android:textColor="@color/background_and_text"
-            android:textSize="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!-- language button constrain -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayoutLanguage"
+    <Button
+        android:id="@+id/danishButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/radius_button_20"
-        app:layout_constraintEnd_toEndOf="@id/constraintLayoutFriends"
-        app:layout_constraintStart_toStartOf="@id/constraintLayoutFriends"
-        app:layout_constraintTop_toBottomOf="@id/constraintLayoutFriends">
-
-        <Button
-            android:id="@+id/danishButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/normal_button_background"
-            android:onClick="languageClicked"
-            android:text="@string/language"
-            android:textColor="@color/background_and_text"
-            android:textSize="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:onClick="languageClicked"
+        android:text="@string/language"
+        android:textColor="@color/background_and_text"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="@id/friendsButton"
+        app:layout_constraintStart_toStartOf="@id/friendsButton"
+        app:layout_constraintTop_toBottomOf="@id/friendsButton" />
 
     
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constrainLayoutLogoutRemove"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/constraintLayoutLanguage"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayoutLanguage">
-        <!-- Logout button constrain -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayoutLogout"
+        app:layout_constraintEnd_toEndOf="@id/danishButton"
+        app:layout_constraintStart_toStartOf="@+id/danishButton">
+
+        <Button
+            android:id="@+id/logoutButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/radius_button_20"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="onClickLogout"
+            android:text="@string/logout_button"
+            android:textColor="@color/background_and_text"
+            android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-    
-            <Button
-                android:id="@+id/logoutButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@color/normal_button_background"
-                android:onClick="onClickLogout"
-                android:text="@string/logout_button"
-                android:textColor="@color/background_and_text"
-                android:textSize="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userLoggedIn" />
     
         <TextView
             android:id="@+id/userLoggedInTittle"
@@ -175,12 +104,12 @@
             android:id="@+id/userLoggedIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
             android:hint="@string/user_not_logged_in"
             android:textColor="@color/normal_button_background"
             android:textColorHint="@color/normal_button_background"
             android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayoutLogout"
+            app:layout_constraintBottom_toTopOf="@+id/logoutButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     
