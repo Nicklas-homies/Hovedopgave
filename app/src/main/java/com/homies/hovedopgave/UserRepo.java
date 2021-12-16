@@ -68,9 +68,12 @@ public class UserRepo {
             users.clear();
             if (error == null) {
                 for (DocumentSnapshot snap : values.getDocuments()) {
-                    Object user = snap.get("email");
-                    if (user != null) {
-                        users.add(new User());
+                    String id = snap.getId();
+                    Object email = snap.get("email");
+                    Object historyList = snap.get("history");
+                    Object activePrograms = snap.get("activePrograms");
+                    if (id != null) {
+                        users.add(new User(id, (String) email, (ArrayList<String>) historyList, (ArrayList<String>) activePrograms));
                     } else {
                         System.out.println("Error getting email");
                     }

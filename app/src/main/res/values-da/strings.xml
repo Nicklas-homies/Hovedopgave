@@ -36,6 +36,10 @@
     <string name="deleted">Slettede</string>
     <string name="no_active_programs">Ingen aktive programmer</string>
     <string name="visit_programs">Besøg program tabben for at starte din træning</string>
+    <string name="friend_not_logged_in">Du skal være logget ind for at tilgå venner</string>
+    <string name="friend_title">Venner</string>
+    <string name="friend_no_active_programs">Bruger har ingen aktive programmer</string>
+    <string name="friend_no_history">Bruger har ingen historik</string>
 
     <!-- Excersises strings -->
     <string name="new_exercise">Ny øvelse</string>
