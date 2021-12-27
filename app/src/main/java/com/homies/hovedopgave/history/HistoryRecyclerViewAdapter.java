@@ -48,7 +48,6 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryRecy
             intent.putExtra("programId", history.getProgramId());
             view.getContext().startActivity(intent);
         });
-        
     }
 
     @Override
@@ -66,6 +65,7 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryRecy
             dateCompleted = itemView.findViewById(R.id.history_item_date);
             programName = itemView.findViewById(R.id.history_item_program_name);
             layout = itemView.findViewById(R.id.history_item_layout);
+
         }
     }
 }
