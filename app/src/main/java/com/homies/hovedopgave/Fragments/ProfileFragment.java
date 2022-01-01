@@ -17,7 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.homies.hovedopgave.Login.LoginActivity;
 import com.homies.hovedopgave.R;
 
-import com.homies.hovedopgave.UserRepo;
+import com.homies.hovedopgave.Repos.UserRepo;
 import com.homies.hovedopgave.friends.FriendActivity;
 import com.homies.hovedopgave.utils.LanguageHelper;
 

@@ -2,8 +2,6 @@ package com.homies.hovedopgave.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -14,10 +12,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.homies.hovedopgave.Fragments.ProfileFragment;
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.Updatable;
-import com.homies.hovedopgave.UserRepo;
+import com.homies.hovedopgave.Repos.UserRepo;
 import com.homies.hovedopgave.models.User;
 
 import java.util.ArrayList;

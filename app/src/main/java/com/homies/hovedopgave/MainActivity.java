@@ -10,15 +10,13 @@ import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.homies.hovedopgave.Fragments.ExerciseFragment;
 import com.homies.hovedopgave.Fragments.HistoryFragment;
 import com.homies.hovedopgave.Fragments.HomeFragment;
 import com.homies.hovedopgave.Fragments.ProgramsFragment;
 import com.homies.hovedopgave.Fragments.ProfileFragment;
+import com.homies.hovedopgave.Repos.UserRepo;
 import com.homies.hovedopgave.utils.LanguageHelper;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements Updatable {
 

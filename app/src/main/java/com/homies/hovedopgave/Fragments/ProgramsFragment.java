@@ -18,7 +18,7 @@ import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.Repos.ExerciseRepo;
 import com.homies.hovedopgave.Repos.ProgramRepo;
 import com.homies.hovedopgave.Updatable;
-import com.homies.hovedopgave.UserRepo;
+import com.homies.hovedopgave.Repos.UserRepo;
 import com.homies.hovedopgave.interfaces.ExerciseUpdate;
 import com.homies.hovedopgave.models.Exercise;
 import com.homies.hovedopgave.models.Program;

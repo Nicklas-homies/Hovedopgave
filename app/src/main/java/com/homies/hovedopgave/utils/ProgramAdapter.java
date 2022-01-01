@@ -12,9 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.homies.hovedopgave.R;
-import com.homies.hovedopgave.UserRepo;
+import com.homies.hovedopgave.Repos.UserRepo;
 import com.homies.hovedopgave.history.SessionActivity;
 import com.homies.hovedopgave.models.Exercise;
 import com.homies.hovedopgave.models.Program;

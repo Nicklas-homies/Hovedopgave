@@ -4,7 +4,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.homies.hovedopgave.Updatable;
-import com.homies.hovedopgave.UserRepo;
 import com.homies.hovedopgave.models.Program;
 
 import java.util.ArrayList;

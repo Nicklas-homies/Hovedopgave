@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.Repos.HistoryRepo;
 import com.homies.hovedopgave.Updatable;
-import com.homies.hovedopgave.UserRepo;
+import com.homies.hovedopgave.Repos.UserRepo;
 import com.homies.hovedopgave.history.HistoryRecyclerViewAdapter;
 import com.homies.hovedopgave.models.History;
 import com.homies.hovedopgave.models.User;

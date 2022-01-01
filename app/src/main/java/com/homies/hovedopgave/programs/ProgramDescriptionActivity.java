@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +16,7 @@ import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.Repos.ExerciseRepo;
 import com.homies.hovedopgave.Repos.ProgramRepo;
 import com.homies.hovedopgave.Updatable;
-import com.homies.hovedopgave.UserRepo;
+import com.homies.hovedopgave.Repos.UserRepo;
 import com.homies.hovedopgave.exercises.ExerciseRecyclerAdapter;
 import com.homies.hovedopgave.interfaces.ExerciseUpdate;
 import com.homies.hovedopgave.models.Exercise;

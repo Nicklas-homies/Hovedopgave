@@ -8,9 +8,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,7 +24,6 @@ import com.homies.hovedopgave.Updatable;
 import com.homies.hovedopgave.exercises.ExerciseRecyclerAdapter;
 import com.homies.hovedopgave.exercises.NewExerciseActivity;
 import com.homies.hovedopgave.models.Exercise;
-import com.homies.hovedopgave.utils.EditTextEnterClicked;
 import com.homies.hovedopgave.utils.LanguageHelper;
 
 import java.util.ArrayList;
@@ -41,6 +37,7 @@ public class ExerciseFragment extends Fragment implements Updatable {
     private RecyclerView recyclerView;
     FragmentManager manager;
     ExerciseRecyclerAdapter adapter;
+    List<Exercise> filterData = new ArrayList<>();
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -79,6 +76,71 @@ public class ExerciseFragment extends Fragment implements Updatable {
         data.clear();
         data.addAll(exercises);
         adapter.notifyDataSetChanged();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void filter(View view) {
+        filterData.clear();
+        filterData.addAll(exercises);
+        // skaffer keywords her, da det er her vi har view.
+        CharSequence searchKeyword = ((TextView) view.findViewById(R.id.edit_text_text_person_name)).getText();
+        CharSequence filterKeyword = ((TextView) view.findViewById(R.id.edit_text_filter_muscle)).getText();
+        String minTimeString = ((TextView) view.findViewById(R.id.min_time_filter)).getText().toString();
+        String maxTimeString = ((TextView) view.findViewById(R.id.max_time_filter)).getText().toString();
+
+        filterByName(searchKeyword);
+        filterByMuscleOrTool(filterKeyword);
+        filterByTime(minTimeString, maxTimeString);
+
+        data.clear();
+        data.addAll(filterData);
+        adapter.notifyDataSetChanged();
+    }
+
+    private void filterByName(CharSequence searchWord) {
+
+        this.filterData = filterData.stream().filter(exercise -> exercise.getExerciseName().toLowerCase().contains((searchWord).toString().toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
+    private void filterByMuscleOrTool(CharSequence searchWord) {
+        this.filterData = filterData.stream().filter(exercise -> eachContainsLower((ArrayList<String>) exercise.getMuscleGroup(), searchWord.toString())
+                        || eachContainsLower((ArrayList<String>) exercise.getTools(), searchWord.toString()))
+                .collect(Collectors.toList());
+    }
+
+    private void filterByTime(String minTimeString, String maxTimeString) {
+        int minTime;
+        int maxTime;
+        // handle empty fields
+        if (minTimeString.equals("")) {
+            minTime = -1;
+        }
+        else {
+            minTime = Integer.valueOf(minTimeString);
+        }
+        if (maxTimeString.equals("")) {
+            maxTime = Integer.MAX_VALUE;
+        }
+        else {
+            maxTime = Integer.valueOf(maxTimeString);
+        }
+        this.filterData = filterData.stream().filter(exercise -> exercise.getTime() < maxTime && exercise.getTime() > minTime)
+                .collect(Collectors.toList());
+    }
+
+    private boolean eachContainsLower(@NonNull ArrayList<String> list, String keyword) {
+        for (String compare : list) {
+            if (compare.toLowerCase().contains(keyword.toLowerCase())) {
+                System.out.println(keyword);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void openNewExerciseDialog(View view) {
+        startActivity(new Intent(getActivity().getApplicationContext(), NewExerciseActivity.class));
     }
 
     private void setChangeListenerMaxTime(View view) {
@@ -160,53 +222,5 @@ public class ExerciseFragment extends Fragment implements Updatable {
 
             }
         });
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public void filter(View view) {
-        data.clear();
-        data.addAll(exercises);
-        CharSequence searchKeyword = ((TextView) view.findViewById(R.id.edit_text_text_person_name)).getText();
-        CharSequence filterKeyword = ((TextView) view.findViewById(R.id.edit_text_filter_muscle)).getText();
-        String minTimeString = ((TextView) view.findViewById(R.id.min_time_filter)).getText().toString();
-        String maxTimeString = ((TextView) view.findViewById(R.id.max_time_filter)).getText().toString();
-        int minTime;
-        int maxTime;
-        if (minTimeString.equals("")) {
-            minTime = -1;
-        }
-        else {
-            minTime = Integer.valueOf(minTimeString);
-        }
-        if (maxTimeString.equals("")) {
-            maxTime = Integer.MAX_VALUE;
-        }
-        else {
-            maxTime = Integer.valueOf(maxTimeString);
-        }
-        List<Exercise> filterData;
-        filterData = data.stream()
-                .filter(exercise -> exercise.getExerciseName().toLowerCase().contains(searchKeyword.toString().toLowerCase())
-                        && (eachContainsLower((ArrayList<String>) exercise.getMuscleGroup(), filterKeyword.toString())
-                        || eachContainsLower((ArrayList<String>) exercise.getTools(), filterKeyword.toString()))
-                        && exercise.getTime() < maxTime && exercise.getTime() > minTime)
-                .collect(Collectors.toList());
-        data.clear();
-        data.addAll(filterData);
-        adapter.notifyDataSetChanged();
-    }
-
-    private boolean eachContainsLower(@NonNull ArrayList<String> list, String keyword) {
-        for (String compare : list) {
-            if (compare.toLowerCase().contains(keyword.toLowerCase())) {
-                System.out.println(keyword);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void openNewExerciseDialog(View view) {
-        startActivity(new Intent(getActivity().getApplicationContext(), NewExerciseActivity.class));
     }
 }

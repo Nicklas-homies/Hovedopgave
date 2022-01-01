@@ -9,14 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.homies.hovedopgave.R;
 import com.homies.hovedopgave.Repos.ExerciseRepo;
 import com.homies.hovedopgave.Repos.ProgramRepo;
 import com.homies.hovedopgave.Updatable;
-import com.homies.hovedopgave.UserRepo;
 import com.homies.hovedopgave.exercises.ExerciseRecyclerAdapter;
 import com.homies.hovedopgave.interfaces.NewProgramInterface;
 import com.homies.hovedopgave.models.Exercise;
