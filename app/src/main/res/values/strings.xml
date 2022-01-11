@@ -39,6 +39,8 @@
     <string name="friend_title">Friends</string>
     <string name="friend_no_active_programs"> User has no active programs</string>
     <string name="friend_no_history">User has no history</string>
+    <string name="all">All</string>
+    <string name="nav_map">Map</string>
 
     <!-- Excersises strings -->
     <string name="new_exercise">New exercise</string>
@@ -88,4 +90,6 @@
     <string name="filter_muscle">Search for muscle and tool</string>
     <string name="min_time">Min time</string>
     <string name="max_time">Max time</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

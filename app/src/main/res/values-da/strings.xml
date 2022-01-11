@@ -40,6 +40,8 @@
     <string name="friend_title">Venner</string>
     <string name="friend_no_active_programs">Bruger har ingen aktive programmer</string>
     <string name="friend_no_history">Bruger har ingen historik</string>
+    <string name="all">Alle</string>
+    <string name="nav_map">Kort</string>
 
     <!-- Excersises strings -->
     <string name="new_exercise">Ny øvelse</string>
@@ -69,7 +71,7 @@
     <string name="friends_button">Venner</string>
     <string name="loginlogout_button">Log ind / log ud</string>
     <string name="login_succes">Login fuldført</string>
-    <string name="logout_button">Logout</string>
+    <string name="logout_button">Log ud</string>
     <string name="login_unsucces">Login fejlede! Tjek din information</string>
     <string name="login_verify">Tjek din mail for at bekræfte din konto</string>
     <string name="user_logged_in">Logget ind som: </string>

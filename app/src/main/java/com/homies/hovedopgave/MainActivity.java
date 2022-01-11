@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.homies.hovedopgave.Fragments.ExerciseFragment;
 import com.homies.hovedopgave.Fragments.HistoryFragment;
 import com.homies.hovedopgave.Fragments.HomeFragment;
+import com.homies.hovedopgave.Fragments.MapFragment;
 import com.homies.hovedopgave.Fragments.ProgramsFragment;
 import com.homies.hovedopgave.Fragments.ProfileFragment;
 import com.homies.hovedopgave.Repos.UserRepo;
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements Updatable {
                 break;
 
             case R.id.nav_history:
-                selectedFragment = new HistoryFragment();
+                selectedFragment = new MapFragment();
                 break;
 
             case R.id.nav_profile:

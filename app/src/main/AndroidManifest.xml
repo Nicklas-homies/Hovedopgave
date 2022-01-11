@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hovedopgave">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBuvNsYL6rfbmH2SWDAKfumoaapoY0ZcpE"
+            />
         <activity
             android:name=".friends.FriendHistoryActivity"
             android:exported="true" />
@@ -41,6 +46,9 @@
             android:exported="false" />
         <activity
             android:name=".LanguageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".history.HistoryActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

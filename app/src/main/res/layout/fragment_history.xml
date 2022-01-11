@@ -13,10 +13,9 @@
         android:layout_height="wrap_content"
         android:text="@string/history"
         android:textSize="@dimen/largeText"
-        android:layout_marginTop="-8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragment_history_recyclerview"
@@ -37,6 +36,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_history_headline" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/app_logo_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/app_logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,6 +19,7 @@ import com.homies.hovedopgave.R;
 
 import com.homies.hovedopgave.Repos.UserRepo;
 import com.homies.hovedopgave.friends.FriendActivity;
+import com.homies.hovedopgave.history.HistoryActivity;
 import com.homies.hovedopgave.utils.LanguageHelper;
 
 public class ProfileFragment extends Fragment {
@@ -49,6 +50,7 @@ public class ProfileFragment extends Fragment {
         view.findViewById(R.id.danishButton).setOnClickListener(view1 -> languageClicked(view1));
         view.findViewById(R.id.loginLogoutButton).setOnClickListener(view1 -> LoginClicked(view1));
         view.findViewById(R.id.friendsButton).setOnClickListener(view1 -> friendsClicked(view1));
+        view.findViewById(R.id.historyButton).setOnClickListener(view1 -> historyClicked(view1));
         return view;
     }
 
@@ -79,6 +81,10 @@ public class ProfileFragment extends Fragment {
         }else {
             Toast.makeText(getContext(), getString(R.string.friend_not_logged_in).toString(), Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void historyClicked(View v){
+        startActivity(new Intent(getActivity().getApplicationContext(), HistoryActivity.class));
     }
 
     public void languageClicked(View v){

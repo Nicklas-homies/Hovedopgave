@@ -69,7 +69,6 @@ public class ProgramsFragment extends Fragment implements Updatable, ExerciseUpd
     @Override
     public void onResume() {
         super.onResume();
-        System.out.println("We hit resume");
         ProgramRepo.pr().setup(this, programs);
     }
 
@@ -84,21 +83,16 @@ public class ProgramsFragment extends Fragment implements Updatable, ExerciseUpd
 
     @Override
     public void update(Object o) {
-        System.out.println("pFrag update");
         programsExerciseStringFormat = (ArrayList<Program>) o;
         ExerciseRepo.r().tempStartListener(this);
     }
 
     @Override
     public void exerciseUpdate(Object o){
-        System.out.println("pFrag exUpdate");
         exercises = (ArrayList<Exercise>) o;
         HashMap<String, Exercise> exerciseMap = ProgramHelper.convertExerciseListToMap(exercises);
 
         programs = ProgramHelper.generateRealProgramList(programsExerciseStringFormat, exerciseMap);
-        for (Program p : programs) {
-            System.out.println(p.getProgramName());
-        }
         data.clear();
         data.addAll(programs);
         programAdapter.notifyDataSetChanged();

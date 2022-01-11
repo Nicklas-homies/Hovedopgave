@@ -39,6 +39,7 @@ public class ExerciseRepo {
             if (error == null) {
                 for (DocumentSnapshot snap : values.getDocuments()) {
                     Map<String, Object> mapExercise = snap.getData();
+                    System.out.println(snap.getId());
                     if (mapExercise.size() != 0) {
                         ArrayList<String> muscleGroup;
                         muscleGroup = (ArrayList<String>) mapExercise.get("muscleGroup");
