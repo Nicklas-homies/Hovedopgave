@@ -102,13 +102,8 @@ public class HomeFragment extends Fragment implements Updatable, ExerciseUpdate,
 
     @Override
     public void activeProgramUpdate(Object o) {
-        if (UserRepo.r().getLogicalUid() != null){
-            noProgramLayout.setVisibility(View.GONE);
-            rvActivePrograms.setVisibility(View.VISIBLE);
-            ProgramRepo.pr().getProgramsByStringList((ArrayList<String>) o);
-        }else {
-            noProgramLayout.setVisibility(View.VISIBLE);
-            rvActivePrograms.setVisibility(View.GONE);
-        }
+        noProgramLayout.setVisibility(View.GONE);
+        rvActivePrograms.setVisibility(View.VISIBLE);
+        ProgramRepo.pr().getProgramsByStringList((ArrayList<String>) o);
     }
 }
