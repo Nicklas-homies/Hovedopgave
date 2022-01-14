@@ -51,6 +51,10 @@ public class MainActivity extends AppCompatActivity implements Updatable {
         UserRepo.r().setEmail(null);
         UserRepo.r().setUid(null);
         recreate();
+        Menu menu = bottomNav.getMenu();
+        MenuItem menuItem = menu.findItem(R.id.nav_home);
+        menuItem.setChecked(true);
+        menu.performIdentifierAction(R.id.nav_home, 0);
         isLoggedOut = true;
     }
 
