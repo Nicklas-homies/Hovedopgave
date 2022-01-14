@@ -11,7 +11,6 @@ import android.view.View;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.homies.hovedopgave.Fragments.ExerciseFragment;
-import com.homies.hovedopgave.Fragments.HistoryFragment;
 import com.homies.hovedopgave.Fragments.HomeFragment;
 import com.homies.hovedopgave.Fragments.MapFragment;
 import com.homies.hovedopgave.Fragments.ProgramsFragment;

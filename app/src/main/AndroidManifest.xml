@@ -45,9 +45,6 @@
             android:name=".exercises.NewExerciseActivity"
             android:exported="false" />
         <activity
-            android:name=".LanguageActivity"
-            android:exported="true" />
-        <activity
             android:name=".history.HistoryActivity"
             android:exported="true" />
         <activity
